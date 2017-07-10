@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.1_sdx (lin64) Build 1881615 Tue May 16 18:38:00 MDT 2017
---Date        : Fri Jul  7 16:05:59 2017
+--Date        : Mon Jul 10 11:54:08 2017
 --Host        : localhost.localdomain running 64-bit unknown
 --Command     : generate_target Arty_Z7_20.bd
 --Design      : Arty_Z7_20
@@ -5503,7 +5503,7 @@ entity Arty_Z7_20 is
     sys_clock : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of Arty_Z7_20 : entity is "Arty_Z7_20,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Arty_Z7_20,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=57,numReposBlks=37,numNonXlnxBlks=5,numHierBlks=20,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of Arty_Z7_20 : entity is "Arty_Z7_20,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Arty_Z7_20,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=57,numReposBlks=37,numNonXlnxBlks=5,numHierBlks=20,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of Arty_Z7_20 : entity is "Arty_Z7_20.hwdef";
 end Arty_Z7_20;
@@ -5556,21 +5556,6 @@ architecture STRUCTURE of Arty_Z7_20 is
     m_axis_tuser : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component Arty_Z7_20_axis_subset_converter_0_0;
-  component Arty_Z7_20_rgb2dvi_0_0 is
-  port (
-    TMDS_Clk_p : out STD_LOGIC;
-    TMDS_Clk_n : out STD_LOGIC;
-    TMDS_Data_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    TMDS_Data_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    aRst_n : in STD_LOGIC;
-    vid_pData : in STD_LOGIC_VECTOR ( 23 downto 0 );
-    vid_pVDE : in STD_LOGIC;
-    vid_pHSync : in STD_LOGIC;
-    vid_pVSync : in STD_LOGIC;
-    PixelClk : in STD_LOGIC;
-    SerialClk : in STD_LOGIC
-  );
-  end component Arty_Z7_20_rgb2dvi_0_0;
   component Arty_Z7_20_rst_processing_system7_0_100M_0 is
   port (
     slowest_sync_clk : in STD_LOGIC;
@@ -5677,29 +5662,6 @@ architecture STRUCTURE of Arty_Z7_20 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component Arty_Z7_20_proc_sys_reset_0_2;
-  component Arty_Z7_20_dvi2rgb_0_0 is
-  port (
-    TMDS_Clk_p : in STD_LOGIC;
-    TMDS_Clk_n : in STD_LOGIC;
-    TMDS_Data_p : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    TMDS_Data_n : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    RefClk : in STD_LOGIC;
-    aRst_n : in STD_LOGIC;
-    vid_pData : out STD_LOGIC_VECTOR ( 23 downto 0 );
-    vid_pVDE : out STD_LOGIC;
-    vid_pHSync : out STD_LOGIC;
-    vid_pVSync : out STD_LOGIC;
-    PixelClk : out STD_LOGIC;
-    aPixelClkLckd : out STD_LOGIC;
-    DDC_SDA_I : in STD_LOGIC;
-    DDC_SDA_O : out STD_LOGIC;
-    DDC_SDA_T : out STD_LOGIC;
-    DDC_SCL_I : in STD_LOGIC;
-    DDC_SCL_O : out STD_LOGIC;
-    DDC_SCL_T : out STD_LOGIC;
-    pRst_n : in STD_LOGIC
-  );
-  end component Arty_Z7_20_dvi2rgb_0_0;
   component Arty_Z7_20_proc_sys_reset_0_3 is
   port (
     slowest_sync_clk : in STD_LOGIC;
@@ -6136,7 +6098,7 @@ architecture STRUCTURE of Arty_Z7_20 is
     S_AXI_HP0_WID : in STD_LOGIC_VECTOR ( 5 downto 0 );
     S_AXI_HP0_WDATA : in STD_LOGIC_VECTOR ( 63 downto 0 );
     S_AXI_HP0_WSTRB : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    IRQ_F2P : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    IRQ_F2P : in STD_LOGIC_VECTOR ( 8 downto 0 );
     FCLK_CLK0 : out STD_LOGIC;
     FCLK_CLK1 : out STD_LOGIC;
     FCLK_CLK2 : out STD_LOGIC;
@@ -6296,7 +6258,8 @@ architecture STRUCTURE of Arty_Z7_20 is
     In5 : in STD_LOGIC_VECTOR ( 0 to 0 );
     In6 : in STD_LOGIC_VECTOR ( 0 to 0 );
     In7 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    In8 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 8 downto 0 )
   );
   end component Arty_Z7_20_xlconcat_0_0;
   component Arty_Z7_20_xlconcat_1_0 is
@@ -6358,42 +6321,81 @@ architecture STRUCTURE of Arty_Z7_20 is
     s_axi_aresetn : in STD_LOGIC
   );
   end component Arty_Z7_20_PmodGPIO_0_1;
-  component Arty_Z7_20_PmodGYRO_0_0 is
+  component Arty_Z7_20_dvi2rgb_0_0 is
   port (
-    AXI_LITE_GPIO_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
-    AXI_LITE_GPIO_arready : out STD_LOGIC;
-    AXI_LITE_GPIO_arvalid : in STD_LOGIC;
-    AXI_LITE_GPIO_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
-    AXI_LITE_GPIO_awready : out STD_LOGIC;
-    AXI_LITE_GPIO_awvalid : in STD_LOGIC;
-    AXI_LITE_GPIO_bready : in STD_LOGIC;
-    AXI_LITE_GPIO_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    AXI_LITE_GPIO_bvalid : out STD_LOGIC;
-    AXI_LITE_GPIO_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    AXI_LITE_GPIO_rready : in STD_LOGIC;
-    AXI_LITE_GPIO_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    AXI_LITE_GPIO_rvalid : out STD_LOGIC;
-    AXI_LITE_GPIO_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    AXI_LITE_GPIO_wready : out STD_LOGIC;
-    AXI_LITE_GPIO_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    AXI_LITE_GPIO_wvalid : in STD_LOGIC;
-    AXI_LITE_SPI_araddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    AXI_LITE_SPI_arready : out STD_LOGIC;
-    AXI_LITE_SPI_arvalid : in STD_LOGIC;
-    AXI_LITE_SPI_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    AXI_LITE_SPI_awready : out STD_LOGIC;
-    AXI_LITE_SPI_awvalid : in STD_LOGIC;
-    AXI_LITE_SPI_bready : in STD_LOGIC;
-    AXI_LITE_SPI_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    AXI_LITE_SPI_bvalid : out STD_LOGIC;
-    AXI_LITE_SPI_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    AXI_LITE_SPI_rready : in STD_LOGIC;
-    AXI_LITE_SPI_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    AXI_LITE_SPI_rvalid : out STD_LOGIC;
-    AXI_LITE_SPI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    AXI_LITE_SPI_wready : out STD_LOGIC;
-    AXI_LITE_SPI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    AXI_LITE_SPI_wvalid : in STD_LOGIC;
+    TMDS_Clk_p : in STD_LOGIC;
+    TMDS_Clk_n : in STD_LOGIC;
+    TMDS_Data_p : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    TMDS_Data_n : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    RefClk : in STD_LOGIC;
+    aRst_n : in STD_LOGIC;
+    vid_pData : out STD_LOGIC_VECTOR ( 23 downto 0 );
+    vid_pVDE : out STD_LOGIC;
+    vid_pHSync : out STD_LOGIC;
+    vid_pVSync : out STD_LOGIC;
+    PixelClk : out STD_LOGIC;
+    aPixelClkLckd : out STD_LOGIC;
+    DDC_SDA_I : in STD_LOGIC;
+    DDC_SDA_O : out STD_LOGIC;
+    DDC_SDA_T : out STD_LOGIC;
+    DDC_SCL_I : in STD_LOGIC;
+    DDC_SCL_O : out STD_LOGIC;
+    DDC_SCL_T : out STD_LOGIC;
+    pRst_n : in STD_LOGIC
+  );
+  end component Arty_Z7_20_dvi2rgb_0_0;
+  component Arty_Z7_20_rgb2dvi_0_0 is
+  port (
+    TMDS_Clk_p : out STD_LOGIC;
+    TMDS_Clk_n : out STD_LOGIC;
+    TMDS_Data_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    TMDS_Data_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    aRst_n : in STD_LOGIC;
+    vid_pData : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    vid_pVDE : in STD_LOGIC;
+    vid_pHSync : in STD_LOGIC;
+    vid_pVSync : in STD_LOGIC;
+    PixelClk : in STD_LOGIC;
+    SerialClk : in STD_LOGIC
+  );
+  end component Arty_Z7_20_rgb2dvi_0_0;
+  component Arty_Z7_20_PmodHYGRO_0_0 is
+  port (
+    AXI_LITE_IIC_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    AXI_LITE_IIC_arready : out STD_LOGIC;
+    AXI_LITE_IIC_arvalid : in STD_LOGIC;
+    AXI_LITE_IIC_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    AXI_LITE_IIC_awready : out STD_LOGIC;
+    AXI_LITE_IIC_awvalid : in STD_LOGIC;
+    AXI_LITE_IIC_bready : in STD_LOGIC;
+    AXI_LITE_IIC_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    AXI_LITE_IIC_bvalid : out STD_LOGIC;
+    AXI_LITE_IIC_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    AXI_LITE_IIC_rready : in STD_LOGIC;
+    AXI_LITE_IIC_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    AXI_LITE_IIC_rvalid : out STD_LOGIC;
+    AXI_LITE_IIC_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    AXI_LITE_IIC_wready : out STD_LOGIC;
+    AXI_LITE_IIC_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    AXI_LITE_IIC_wvalid : in STD_LOGIC;
+    AXI_LITE_TMR_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    AXI_LITE_TMR_arready : out STD_LOGIC;
+    AXI_LITE_TMR_arvalid : in STD_LOGIC;
+    AXI_LITE_TMR_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    AXI_LITE_TMR_awready : out STD_LOGIC;
+    AXI_LITE_TMR_awvalid : in STD_LOGIC;
+    AXI_LITE_TMR_bready : in STD_LOGIC;
+    AXI_LITE_TMR_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    AXI_LITE_TMR_bvalid : out STD_LOGIC;
+    AXI_LITE_TMR_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    AXI_LITE_TMR_rready : in STD_LOGIC;
+    AXI_LITE_TMR_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    AXI_LITE_TMR_rvalid : out STD_LOGIC;
+    AXI_LITE_TMR_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    AXI_LITE_TMR_wready : out STD_LOGIC;
+    AXI_LITE_TMR_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    AXI_LITE_TMR_wvalid : in STD_LOGIC;
+    I2C_Interrupt : out STD_LOGIC;
     Pmod_out_pin10_i : in STD_LOGIC;
     Pmod_out_pin10_o : out STD_LOGIC;
     Pmod_out_pin10_t : out STD_LOGIC;
@@ -6418,11 +6420,10 @@ architecture STRUCTURE of Arty_Z7_20 is
     Pmod_out_pin9_i : in STD_LOGIC;
     Pmod_out_pin9_o : out STD_LOGIC;
     Pmod_out_pin9_t : out STD_LOGIC;
-    ext_spi_clk : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
     s_axi_aresetn : in STD_LOGIC
   );
-  end component Arty_Z7_20_PmodGYRO_0_0;
+  end component Arty_Z7_20_PmodHYGRO_0_0;
   signal PmodGPIO_0_Pmod_out_PIN10_I : STD_LOGIC;
   signal PmodGPIO_0_Pmod_out_PIN10_O : STD_LOGIC;
   signal PmodGPIO_0_Pmod_out_PIN10_T : STD_LOGIC;
@@ -6447,30 +6448,31 @@ architecture STRUCTURE of Arty_Z7_20 is
   signal PmodGPIO_0_Pmod_out_PIN9_I : STD_LOGIC;
   signal PmodGPIO_0_Pmod_out_PIN9_O : STD_LOGIC;
   signal PmodGPIO_0_Pmod_out_PIN9_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN10_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN10_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN10_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN1_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN1_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN1_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN2_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN2_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN2_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN3_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN3_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN3_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN4_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN4_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN4_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN7_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN7_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN7_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN8_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN8_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN8_T : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN9_I : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN9_O : STD_LOGIC;
-  signal PmodGYRO_0_Pmod_out_PIN9_T : STD_LOGIC;
+  signal PmodHYGRO_0_I2C_Interrupt : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN10_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN10_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN10_T : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN1_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN1_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN1_T : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN2_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN2_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN2_T : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN3_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN3_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN3_T : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN4_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN4_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN4_T : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN7_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN7_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN7_T : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN8_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN8_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN8_T : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN9_I : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN9_O : STD_LOGIC;
+  signal PmodHYGRO_0_Pmod_out_PIN9_T : STD_LOGIC;
   signal TMDS_1_1_CLK_N : STD_LOGIC;
   signal TMDS_1_1_CLK_P : STD_LOGIC;
   signal TMDS_1_1_DATA_N : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6983,7 +6985,7 @@ architecture STRUCTURE of Arty_Z7_20 is
   signal v_vid_in_axi4s_0_vtiming_out_HSYNC : STD_LOGIC;
   signal v_vid_in_axi4s_0_vtiming_out_VSYNC : STD_LOGIC;
   signal xadc_wiz_0_ip2intc_irpt : STD_LOGIC;
-  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 8 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_axi_vdma_0_mm2s_frame_ptr_out_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal NLW_axi_vdma_0_s2mm_frame_ptr_out_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -7055,22 +7057,22 @@ begin
   HDMI_DDC_scl_t <= processing_system7_0_IIC_0_SCL_T;
   HDMI_DDC_sda_o <= processing_system7_0_IIC_0_SDA_O;
   HDMI_DDC_sda_t <= processing_system7_0_IIC_0_SDA_T;
-  PmodGPIO_0_Pmod_out_PIN10_I <= ja_pin10_i;
-  PmodGPIO_0_Pmod_out_PIN1_I <= ja_pin1_i;
-  PmodGPIO_0_Pmod_out_PIN2_I <= ja_pin2_i;
-  PmodGPIO_0_Pmod_out_PIN3_I <= ja_pin3_i;
-  PmodGPIO_0_Pmod_out_PIN4_I <= ja_pin4_i;
-  PmodGPIO_0_Pmod_out_PIN7_I <= ja_pin7_i;
-  PmodGPIO_0_Pmod_out_PIN8_I <= ja_pin8_i;
-  PmodGPIO_0_Pmod_out_PIN9_I <= ja_pin9_i;
-  PmodGYRO_0_Pmod_out_PIN10_I <= jb_pin10_i;
-  PmodGYRO_0_Pmod_out_PIN1_I <= jb_pin1_i;
-  PmodGYRO_0_Pmod_out_PIN2_I <= jb_pin2_i;
-  PmodGYRO_0_Pmod_out_PIN3_I <= jb_pin3_i;
-  PmodGYRO_0_Pmod_out_PIN4_I <= jb_pin4_i;
-  PmodGYRO_0_Pmod_out_PIN7_I <= jb_pin7_i;
-  PmodGYRO_0_Pmod_out_PIN8_I <= jb_pin8_i;
-  PmodGYRO_0_Pmod_out_PIN9_I <= jb_pin9_i;
+  PmodGPIO_0_Pmod_out_PIN10_I <= jb_pin10_i;
+  PmodGPIO_0_Pmod_out_PIN1_I <= jb_pin1_i;
+  PmodGPIO_0_Pmod_out_PIN2_I <= jb_pin2_i;
+  PmodGPIO_0_Pmod_out_PIN3_I <= jb_pin3_i;
+  PmodGPIO_0_Pmod_out_PIN4_I <= jb_pin4_i;
+  PmodGPIO_0_Pmod_out_PIN7_I <= jb_pin7_i;
+  PmodGPIO_0_Pmod_out_PIN8_I <= jb_pin8_i;
+  PmodGPIO_0_Pmod_out_PIN9_I <= jb_pin9_i;
+  PmodHYGRO_0_Pmod_out_PIN10_I <= ja_pin10_i;
+  PmodHYGRO_0_Pmod_out_PIN1_I <= ja_pin1_i;
+  PmodHYGRO_0_Pmod_out_PIN2_I <= ja_pin2_i;
+  PmodHYGRO_0_Pmod_out_PIN3_I <= ja_pin3_i;
+  PmodHYGRO_0_Pmod_out_PIN4_I <= ja_pin4_i;
+  PmodHYGRO_0_Pmod_out_PIN7_I <= ja_pin7_i;
+  PmodHYGRO_0_Pmod_out_PIN8_I <= ja_pin8_i;
+  PmodHYGRO_0_Pmod_out_PIN9_I <= ja_pin9_i;
   RGBLED_tri_o(5 downto 0) <= processing_system7_0_GPIO_0_TRI_O(5 downto 0);
   RGBLED_tri_t(5 downto 0) <= processing_system7_0_GPIO_0_TRI_T(5 downto 0);
   TMDS_1_1_CLK_N <= TMDS_In_clk_n;
@@ -7110,38 +7112,38 @@ begin
   dvi2rgb_0_DDC_SCL_I <= DDC_In_scl_i;
   dvi2rgb_0_DDC_SDA_I <= DDC_In_sda_i;
   hdmi_in_hpd_tri_o(0) <= axi_gpio_video_GPIO_TRI_O(0);
-  ja_pin10_o <= PmodGPIO_0_Pmod_out_PIN10_O;
-  ja_pin10_t <= PmodGPIO_0_Pmod_out_PIN10_T;
-  ja_pin1_o <= PmodGPIO_0_Pmod_out_PIN1_O;
-  ja_pin1_t <= PmodGPIO_0_Pmod_out_PIN1_T;
-  ja_pin2_o <= PmodGPIO_0_Pmod_out_PIN2_O;
-  ja_pin2_t <= PmodGPIO_0_Pmod_out_PIN2_T;
-  ja_pin3_o <= PmodGPIO_0_Pmod_out_PIN3_O;
-  ja_pin3_t <= PmodGPIO_0_Pmod_out_PIN3_T;
-  ja_pin4_o <= PmodGPIO_0_Pmod_out_PIN4_O;
-  ja_pin4_t <= PmodGPIO_0_Pmod_out_PIN4_T;
-  ja_pin7_o <= PmodGPIO_0_Pmod_out_PIN7_O;
-  ja_pin7_t <= PmodGPIO_0_Pmod_out_PIN7_T;
-  ja_pin8_o <= PmodGPIO_0_Pmod_out_PIN8_O;
-  ja_pin8_t <= PmodGPIO_0_Pmod_out_PIN8_T;
-  ja_pin9_o <= PmodGPIO_0_Pmod_out_PIN9_O;
-  ja_pin9_t <= PmodGPIO_0_Pmod_out_PIN9_T;
-  jb_pin10_o <= PmodGYRO_0_Pmod_out_PIN10_O;
-  jb_pin10_t <= PmodGYRO_0_Pmod_out_PIN10_T;
-  jb_pin1_o <= PmodGYRO_0_Pmod_out_PIN1_O;
-  jb_pin1_t <= PmodGYRO_0_Pmod_out_PIN1_T;
-  jb_pin2_o <= PmodGYRO_0_Pmod_out_PIN2_O;
-  jb_pin2_t <= PmodGYRO_0_Pmod_out_PIN2_T;
-  jb_pin3_o <= PmodGYRO_0_Pmod_out_PIN3_O;
-  jb_pin3_t <= PmodGYRO_0_Pmod_out_PIN3_T;
-  jb_pin4_o <= PmodGYRO_0_Pmod_out_PIN4_O;
-  jb_pin4_t <= PmodGYRO_0_Pmod_out_PIN4_T;
-  jb_pin7_o <= PmodGYRO_0_Pmod_out_PIN7_O;
-  jb_pin7_t <= PmodGYRO_0_Pmod_out_PIN7_T;
-  jb_pin8_o <= PmodGYRO_0_Pmod_out_PIN8_O;
-  jb_pin8_t <= PmodGYRO_0_Pmod_out_PIN8_T;
-  jb_pin9_o <= PmodGYRO_0_Pmod_out_PIN9_O;
-  jb_pin9_t <= PmodGYRO_0_Pmod_out_PIN9_T;
+  ja_pin10_o <= PmodHYGRO_0_Pmod_out_PIN10_O;
+  ja_pin10_t <= PmodHYGRO_0_Pmod_out_PIN10_T;
+  ja_pin1_o <= PmodHYGRO_0_Pmod_out_PIN1_O;
+  ja_pin1_t <= PmodHYGRO_0_Pmod_out_PIN1_T;
+  ja_pin2_o <= PmodHYGRO_0_Pmod_out_PIN2_O;
+  ja_pin2_t <= PmodHYGRO_0_Pmod_out_PIN2_T;
+  ja_pin3_o <= PmodHYGRO_0_Pmod_out_PIN3_O;
+  ja_pin3_t <= PmodHYGRO_0_Pmod_out_PIN3_T;
+  ja_pin4_o <= PmodHYGRO_0_Pmod_out_PIN4_O;
+  ja_pin4_t <= PmodHYGRO_0_Pmod_out_PIN4_T;
+  ja_pin7_o <= PmodHYGRO_0_Pmod_out_PIN7_O;
+  ja_pin7_t <= PmodHYGRO_0_Pmod_out_PIN7_T;
+  ja_pin8_o <= PmodHYGRO_0_Pmod_out_PIN8_O;
+  ja_pin8_t <= PmodHYGRO_0_Pmod_out_PIN8_T;
+  ja_pin9_o <= PmodHYGRO_0_Pmod_out_PIN9_O;
+  ja_pin9_t <= PmodHYGRO_0_Pmod_out_PIN9_T;
+  jb_pin10_o <= PmodGPIO_0_Pmod_out_PIN10_O;
+  jb_pin10_t <= PmodGPIO_0_Pmod_out_PIN10_T;
+  jb_pin1_o <= PmodGPIO_0_Pmod_out_PIN1_O;
+  jb_pin1_t <= PmodGPIO_0_Pmod_out_PIN1_T;
+  jb_pin2_o <= PmodGPIO_0_Pmod_out_PIN2_O;
+  jb_pin2_t <= PmodGPIO_0_Pmod_out_PIN2_T;
+  jb_pin3_o <= PmodGPIO_0_Pmod_out_PIN3_O;
+  jb_pin3_t <= PmodGPIO_0_Pmod_out_PIN3_T;
+  jb_pin4_o <= PmodGPIO_0_Pmod_out_PIN4_O;
+  jb_pin4_t <= PmodGPIO_0_Pmod_out_PIN4_T;
+  jb_pin7_o <= PmodGPIO_0_Pmod_out_PIN7_O;
+  jb_pin7_t <= PmodGPIO_0_Pmod_out_PIN7_T;
+  jb_pin8_o <= PmodGPIO_0_Pmod_out_PIN8_O;
+  jb_pin8_t <= PmodGPIO_0_Pmod_out_PIN8_T;
+  jb_pin9_o <= PmodGPIO_0_Pmod_out_PIN9_O;
+  jb_pin9_t <= PmodGPIO_0_Pmod_out_PIN9_T;
   leds_4bits_tri_o(3 downto 0) <= axi_gpio_2_GPIO_TRI_O(3 downto 0);
   leds_4bits_tri_t(3 downto 0) <= axi_gpio_2_GPIO_TRI_T(3 downto 0);
   processing_system7_0_GPIO_0_TRI_I(5 downto 0) <= RGBLED_tri_i(5 downto 0);
@@ -7216,67 +7218,67 @@ PmodGPIO_0: component Arty_Z7_20_PmodGPIO_0_1
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_aresetn => rst_processing_system7_0_100M_peripheral_aresetn(0)
     );
-PmodGYRO_0: component Arty_Z7_20_PmodGYRO_0_0
+PmodHYGRO_0: component Arty_Z7_20_PmodHYGRO_0_0
      port map (
-      AXI_LITE_GPIO_araddr(8 downto 0) => processing_system7_0_axi_periph_M13_AXI_ARADDR(8 downto 0),
-      AXI_LITE_GPIO_arready => processing_system7_0_axi_periph_M13_AXI_ARREADY,
-      AXI_LITE_GPIO_arvalid => processing_system7_0_axi_periph_M13_AXI_ARVALID,
-      AXI_LITE_GPIO_awaddr(8 downto 0) => processing_system7_0_axi_periph_M13_AXI_AWADDR(8 downto 0),
-      AXI_LITE_GPIO_awready => processing_system7_0_axi_periph_M13_AXI_AWREADY,
-      AXI_LITE_GPIO_awvalid => processing_system7_0_axi_periph_M13_AXI_AWVALID,
-      AXI_LITE_GPIO_bready => processing_system7_0_axi_periph_M13_AXI_BREADY,
-      AXI_LITE_GPIO_bresp(1 downto 0) => processing_system7_0_axi_periph_M13_AXI_BRESP(1 downto 0),
-      AXI_LITE_GPIO_bvalid => processing_system7_0_axi_periph_M13_AXI_BVALID,
-      AXI_LITE_GPIO_rdata(31 downto 0) => processing_system7_0_axi_periph_M13_AXI_RDATA(31 downto 0),
-      AXI_LITE_GPIO_rready => processing_system7_0_axi_periph_M13_AXI_RREADY,
-      AXI_LITE_GPIO_rresp(1 downto 0) => processing_system7_0_axi_periph_M13_AXI_RRESP(1 downto 0),
-      AXI_LITE_GPIO_rvalid => processing_system7_0_axi_periph_M13_AXI_RVALID,
-      AXI_LITE_GPIO_wdata(31 downto 0) => processing_system7_0_axi_periph_M13_AXI_WDATA(31 downto 0),
-      AXI_LITE_GPIO_wready => processing_system7_0_axi_periph_M13_AXI_WREADY,
-      AXI_LITE_GPIO_wstrb(3 downto 0) => processing_system7_0_axi_periph_M13_AXI_WSTRB(3 downto 0),
-      AXI_LITE_GPIO_wvalid => processing_system7_0_axi_periph_M13_AXI_WVALID,
-      AXI_LITE_SPI_araddr(6 downto 0) => processing_system7_0_axi_periph_M12_AXI_ARADDR(6 downto 0),
-      AXI_LITE_SPI_arready => processing_system7_0_axi_periph_M12_AXI_ARREADY,
-      AXI_LITE_SPI_arvalid => processing_system7_0_axi_periph_M12_AXI_ARVALID,
-      AXI_LITE_SPI_awaddr(6 downto 0) => processing_system7_0_axi_periph_M12_AXI_AWADDR(6 downto 0),
-      AXI_LITE_SPI_awready => processing_system7_0_axi_periph_M12_AXI_AWREADY,
-      AXI_LITE_SPI_awvalid => processing_system7_0_axi_periph_M12_AXI_AWVALID,
-      AXI_LITE_SPI_bready => processing_system7_0_axi_periph_M12_AXI_BREADY,
-      AXI_LITE_SPI_bresp(1 downto 0) => processing_system7_0_axi_periph_M12_AXI_BRESP(1 downto 0),
-      AXI_LITE_SPI_bvalid => processing_system7_0_axi_periph_M12_AXI_BVALID,
-      AXI_LITE_SPI_rdata(31 downto 0) => processing_system7_0_axi_periph_M12_AXI_RDATA(31 downto 0),
-      AXI_LITE_SPI_rready => processing_system7_0_axi_periph_M12_AXI_RREADY,
-      AXI_LITE_SPI_rresp(1 downto 0) => processing_system7_0_axi_periph_M12_AXI_RRESP(1 downto 0),
-      AXI_LITE_SPI_rvalid => processing_system7_0_axi_periph_M12_AXI_RVALID,
-      AXI_LITE_SPI_wdata(31 downto 0) => processing_system7_0_axi_periph_M12_AXI_WDATA(31 downto 0),
-      AXI_LITE_SPI_wready => processing_system7_0_axi_periph_M12_AXI_WREADY,
-      AXI_LITE_SPI_wstrb(3 downto 0) => processing_system7_0_axi_periph_M12_AXI_WSTRB(3 downto 0),
-      AXI_LITE_SPI_wvalid => processing_system7_0_axi_periph_M12_AXI_WVALID,
-      Pmod_out_pin10_i => PmodGYRO_0_Pmod_out_PIN10_I,
-      Pmod_out_pin10_o => PmodGYRO_0_Pmod_out_PIN10_O,
-      Pmod_out_pin10_t => PmodGYRO_0_Pmod_out_PIN10_T,
-      Pmod_out_pin1_i => PmodGYRO_0_Pmod_out_PIN1_I,
-      Pmod_out_pin1_o => PmodGYRO_0_Pmod_out_PIN1_O,
-      Pmod_out_pin1_t => PmodGYRO_0_Pmod_out_PIN1_T,
-      Pmod_out_pin2_i => PmodGYRO_0_Pmod_out_PIN2_I,
-      Pmod_out_pin2_o => PmodGYRO_0_Pmod_out_PIN2_O,
-      Pmod_out_pin2_t => PmodGYRO_0_Pmod_out_PIN2_T,
-      Pmod_out_pin3_i => PmodGYRO_0_Pmod_out_PIN3_I,
-      Pmod_out_pin3_o => PmodGYRO_0_Pmod_out_PIN3_O,
-      Pmod_out_pin3_t => PmodGYRO_0_Pmod_out_PIN3_T,
-      Pmod_out_pin4_i => PmodGYRO_0_Pmod_out_PIN4_I,
-      Pmod_out_pin4_o => PmodGYRO_0_Pmod_out_PIN4_O,
-      Pmod_out_pin4_t => PmodGYRO_0_Pmod_out_PIN4_T,
-      Pmod_out_pin7_i => PmodGYRO_0_Pmod_out_PIN7_I,
-      Pmod_out_pin7_o => PmodGYRO_0_Pmod_out_PIN7_O,
-      Pmod_out_pin7_t => PmodGYRO_0_Pmod_out_PIN7_T,
-      Pmod_out_pin8_i => PmodGYRO_0_Pmod_out_PIN8_I,
-      Pmod_out_pin8_o => PmodGYRO_0_Pmod_out_PIN8_O,
-      Pmod_out_pin8_t => PmodGYRO_0_Pmod_out_PIN8_T,
-      Pmod_out_pin9_i => PmodGYRO_0_Pmod_out_PIN9_I,
-      Pmod_out_pin9_o => PmodGYRO_0_Pmod_out_PIN9_O,
-      Pmod_out_pin9_t => PmodGYRO_0_Pmod_out_PIN9_T,
-      ext_spi_clk => processing_system7_0_FCLK_CLK0,
+      AXI_LITE_IIC_araddr(8 downto 0) => processing_system7_0_axi_periph_M13_AXI_ARADDR(8 downto 0),
+      AXI_LITE_IIC_arready => processing_system7_0_axi_periph_M13_AXI_ARREADY,
+      AXI_LITE_IIC_arvalid => processing_system7_0_axi_periph_M13_AXI_ARVALID,
+      AXI_LITE_IIC_awaddr(8 downto 0) => processing_system7_0_axi_periph_M13_AXI_AWADDR(8 downto 0),
+      AXI_LITE_IIC_awready => processing_system7_0_axi_periph_M13_AXI_AWREADY,
+      AXI_LITE_IIC_awvalid => processing_system7_0_axi_periph_M13_AXI_AWVALID,
+      AXI_LITE_IIC_bready => processing_system7_0_axi_periph_M13_AXI_BREADY,
+      AXI_LITE_IIC_bresp(1 downto 0) => processing_system7_0_axi_periph_M13_AXI_BRESP(1 downto 0),
+      AXI_LITE_IIC_bvalid => processing_system7_0_axi_periph_M13_AXI_BVALID,
+      AXI_LITE_IIC_rdata(31 downto 0) => processing_system7_0_axi_periph_M13_AXI_RDATA(31 downto 0),
+      AXI_LITE_IIC_rready => processing_system7_0_axi_periph_M13_AXI_RREADY,
+      AXI_LITE_IIC_rresp(1 downto 0) => processing_system7_0_axi_periph_M13_AXI_RRESP(1 downto 0),
+      AXI_LITE_IIC_rvalid => processing_system7_0_axi_periph_M13_AXI_RVALID,
+      AXI_LITE_IIC_wdata(31 downto 0) => processing_system7_0_axi_periph_M13_AXI_WDATA(31 downto 0),
+      AXI_LITE_IIC_wready => processing_system7_0_axi_periph_M13_AXI_WREADY,
+      AXI_LITE_IIC_wstrb(3 downto 0) => processing_system7_0_axi_periph_M13_AXI_WSTRB(3 downto 0),
+      AXI_LITE_IIC_wvalid => processing_system7_0_axi_periph_M13_AXI_WVALID,
+      AXI_LITE_TMR_araddr(8 downto 0) => processing_system7_0_axi_periph_M12_AXI_ARADDR(8 downto 0),
+      AXI_LITE_TMR_arready => processing_system7_0_axi_periph_M12_AXI_ARREADY,
+      AXI_LITE_TMR_arvalid => processing_system7_0_axi_periph_M12_AXI_ARVALID,
+      AXI_LITE_TMR_awaddr(8 downto 0) => processing_system7_0_axi_periph_M12_AXI_AWADDR(8 downto 0),
+      AXI_LITE_TMR_awready => processing_system7_0_axi_periph_M12_AXI_AWREADY,
+      AXI_LITE_TMR_awvalid => processing_system7_0_axi_periph_M12_AXI_AWVALID,
+      AXI_LITE_TMR_bready => processing_system7_0_axi_periph_M12_AXI_BREADY,
+      AXI_LITE_TMR_bresp(1 downto 0) => processing_system7_0_axi_periph_M12_AXI_BRESP(1 downto 0),
+      AXI_LITE_TMR_bvalid => processing_system7_0_axi_periph_M12_AXI_BVALID,
+      AXI_LITE_TMR_rdata(31 downto 0) => processing_system7_0_axi_periph_M12_AXI_RDATA(31 downto 0),
+      AXI_LITE_TMR_rready => processing_system7_0_axi_periph_M12_AXI_RREADY,
+      AXI_LITE_TMR_rresp(1 downto 0) => processing_system7_0_axi_periph_M12_AXI_RRESP(1 downto 0),
+      AXI_LITE_TMR_rvalid => processing_system7_0_axi_periph_M12_AXI_RVALID,
+      AXI_LITE_TMR_wdata(31 downto 0) => processing_system7_0_axi_periph_M12_AXI_WDATA(31 downto 0),
+      AXI_LITE_TMR_wready => processing_system7_0_axi_periph_M12_AXI_WREADY,
+      AXI_LITE_TMR_wstrb(3 downto 0) => processing_system7_0_axi_periph_M12_AXI_WSTRB(3 downto 0),
+      AXI_LITE_TMR_wvalid => processing_system7_0_axi_periph_M12_AXI_WVALID,
+      I2C_Interrupt => PmodHYGRO_0_I2C_Interrupt,
+      Pmod_out_pin10_i => PmodHYGRO_0_Pmod_out_PIN10_I,
+      Pmod_out_pin10_o => PmodHYGRO_0_Pmod_out_PIN10_O,
+      Pmod_out_pin10_t => PmodHYGRO_0_Pmod_out_PIN10_T,
+      Pmod_out_pin1_i => PmodHYGRO_0_Pmod_out_PIN1_I,
+      Pmod_out_pin1_o => PmodHYGRO_0_Pmod_out_PIN1_O,
+      Pmod_out_pin1_t => PmodHYGRO_0_Pmod_out_PIN1_T,
+      Pmod_out_pin2_i => PmodHYGRO_0_Pmod_out_PIN2_I,
+      Pmod_out_pin2_o => PmodHYGRO_0_Pmod_out_PIN2_O,
+      Pmod_out_pin2_t => PmodHYGRO_0_Pmod_out_PIN2_T,
+      Pmod_out_pin3_i => PmodHYGRO_0_Pmod_out_PIN3_I,
+      Pmod_out_pin3_o => PmodHYGRO_0_Pmod_out_PIN3_O,
+      Pmod_out_pin3_t => PmodHYGRO_0_Pmod_out_PIN3_T,
+      Pmod_out_pin4_i => PmodHYGRO_0_Pmod_out_PIN4_I,
+      Pmod_out_pin4_o => PmodHYGRO_0_Pmod_out_PIN4_O,
+      Pmod_out_pin4_t => PmodHYGRO_0_Pmod_out_PIN4_T,
+      Pmod_out_pin7_i => PmodHYGRO_0_Pmod_out_PIN7_I,
+      Pmod_out_pin7_o => PmodHYGRO_0_Pmod_out_PIN7_O,
+      Pmod_out_pin7_t => PmodHYGRO_0_Pmod_out_PIN7_T,
+      Pmod_out_pin8_i => PmodHYGRO_0_Pmod_out_PIN8_I,
+      Pmod_out_pin8_o => PmodHYGRO_0_Pmod_out_PIN8_O,
+      Pmod_out_pin8_t => PmodHYGRO_0_Pmod_out_PIN8_T,
+      Pmod_out_pin9_i => PmodHYGRO_0_Pmod_out_PIN9_I,
+      Pmod_out_pin9_o => PmodHYGRO_0_Pmod_out_PIN9_O,
+      Pmod_out_pin9_t => PmodHYGRO_0_Pmod_out_PIN9_T,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_aresetn => rst_processing_system7_0_100M_peripheral_aresetn(0)
     );
@@ -7759,7 +7761,7 @@ processing_system7_0: component Arty_Z7_20_processing_system7_0_0
       I2C1_SDA_I => processing_system7_0_IIC_1_SDA_I,
       I2C1_SDA_O => processing_system7_0_IIC_1_SDA_O,
       I2C1_SDA_T => processing_system7_0_IIC_1_SDA_T,
-      IRQ_F2P(7 downto 0) => xlconcat_0_dout(7 downto 0),
+      IRQ_F2P(8 downto 0) => xlconcat_0_dout(8 downto 0),
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
       M_AXI_GP0_ARADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_ARADDR(31 downto 0),
@@ -8434,7 +8436,8 @@ xlconcat_0: component Arty_Z7_20_xlconcat_0_0
       In5(0) => v_tc_1_irq,
       In6(0) => axi_gpio_video_ip2intc_irpt,
       In7(0) => axi_vdma_0_s2mm_introut,
-      dout(7 downto 0) => xlconcat_0_dout(7 downto 0)
+      In8(0) => PmodHYGRO_0_I2C_Interrupt,
+      dout(8 downto 0) => xlconcat_0_dout(8 downto 0)
     );
 xlconcat_1: component Arty_Z7_20_xlconcat_1_0
      port map (

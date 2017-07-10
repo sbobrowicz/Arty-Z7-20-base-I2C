@@ -46,7 +46,7 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: digilentinc.com:ip:rgb2dvi:1.3
+-- IP VLNV: digilentinc.com:ip:rgb2dvi:1.4
 -- IP Revision: 2
 
 LIBRARY ieee;
@@ -77,7 +77,11 @@ ARCHITECTURE Arty_Z7_20_rgb2dvi_0_0_arch OF Arty_Z7_20_rgb2dvi_0_0 IS
       kGenerateSerialClk : BOOLEAN;
       kClkPrimitive : STRING;
       kRstActiveHigh : BOOLEAN;
-      kClkRange : INTEGER
+      kClkRange : INTEGER;
+      kD0Swap : BOOLEAN;
+      kD1Swap : BOOLEAN;
+      kD2Swap : BOOLEAN;
+      kClkSwap : BOOLEAN
     );
     PORT (
       TMDS_Clk_p : OUT STD_LOGIC;
@@ -99,8 +103,8 @@ ARCHITECTURE Arty_Z7_20_rgb2dvi_0_0_arch OF Arty_Z7_20_rgb2dvi_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF Arty_Z7_20_rgb2dvi_0_0_arch : ARCHITECTURE IS "Arty_Z7_20_rgb2dvi_0_0,rgb2dvi,{}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF TMDS_Clk_p: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS CLK_P";
-  ATTRIBUTE X_INTERFACE_INFO OF TMDS_Clk_n: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS CLK_N";
+  ATTRIBUTE X_INTERFACE_INFO OF TMDS_Clk_p: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS CLK_P, xilinx.com:signal:clock:1.0 TMDS_Clk_p CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF TMDS_Clk_n: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS CLK_N, xilinx.com:signal:clock:1.0 TMDS_Clk_n CLK";
   ATTRIBUTE X_INTERFACE_INFO OF TMDS_Data_p: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS DATA_P";
   ATTRIBUTE X_INTERFACE_INFO OF TMDS_Data_n: SIGNAL IS "digilentinc.com:interface:tmds:1.0 TMDS DATA_N";
   ATTRIBUTE X_INTERFACE_INFO OF aRst_n: SIGNAL IS "xilinx.com:signal:reset:1.0 AsyncRst_n RST";
@@ -116,7 +120,11 @@ BEGIN
       kGenerateSerialClk => false,
       kClkPrimitive => "PLL",
       kRstActiveHigh => false,
-      kClkRange => 2
+      kClkRange => 1,
+      kD0Swap => false,
+      kD1Swap => false,
+      kD2Swap => false,
+      kClkSwap => false
     )
     PORT MAP (
       TMDS_Clk_p => TMDS_Clk_p,

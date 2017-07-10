@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.1_sdx (lin64) Build 1881615 Tue May 16 18:38:00 MDT 2017
--- Date        : Wed Jun 28 12:09:15 2017
+-- Date        : Mon Jul 10 11:55:40 2017
 -- Host        : localhost.localdomain running 64-bit unknown
 -- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/sam_work/git/digilent/Arty-Z7-20-base/src/bd/Arty_Z7_20/ip/Arty_Z7_20_PmodGPIO_0_1/Arty_Z7_20_PmodGPIO_0_1_sim_netlist.vhdl
+--               /home/digilent/sam_work/git/sbobrowicz/Arty-Z7-20-base-I2C/src/bd/Arty_Z7_20/ip/Arty_Z7_20_PmodGPIO_0_1/Arty_Z7_20_PmodGPIO_0_1_sim_netlist.vhdl
 -- Design      : Arty_Z7_20_PmodGPIO_0_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.1_sdx (lin64) Build 1881615 Tue May 16 18:38:00 MDT 2017
--- Date        : Tue Jun 20 16:34:24 2017
+-- Date        : Mon Jul 10 11:55:08 2017
 -- Host        : localhost.localdomain running 64-bit unknown
 -- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/sam_work/git/digilent/Arty-Z7-20-base/src/bd/Arty_Z7_20/ip/Arty_Z7_20_dvi2rgb_0_0/Arty_Z7_20_dvi2rgb_0_0_sim_netlist.vhdl
+--               /home/digilent/sam_work/git/sbobrowicz/Arty-Z7-20-base-I2C/src/bd/Arty_Z7_20/ip/Arty_Z7_20_dvi2rgb_0_0/Arty_Z7_20_dvi2rgb_0_0_sim_netlist.vhdl
 -- Design      : Arty_Z7_20_dvi2rgb_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -2704,6 +2704,11 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity Arty_Z7_20_dvi2rgb_0_0_PhaseAlign is
   port (
+    \pEyeOpenCnt_reg[4]_0\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[4]_1\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_0\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_1\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_2\ : out STD_LOGIC;
     pIDLY_CE : out STD_LOGIC;
     pIDLY_INC : out STD_LOGIC;
     pIDLY_LD : out STD_LOGIC;
@@ -2776,11 +2781,11 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_PhaseAlign is
   signal \pEyeOpenCnt[3]_i_1_n_0\ : STD_LOGIC;
   signal \pEyeOpenCnt[4]_i_1_n_0\ : STD_LOGIC;
   signal \pEyeOpenCnt[4]_i_2_n_0\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[0]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[1]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[2]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[3]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[4]\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_0\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_1\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_2\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[4]_0\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[4]_1\ : STD_LOGIC;
   signal pEyeOpenRst : STD_LOGIC;
   signal pFoundEyeFlag : STD_LOGIC;
   signal pFoundEyeFlag_i_1_n_0 : STD_LOGIC;
@@ -2870,6 +2875,11 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_PhaseAlign is
   attribute SOFT_HLUTNM of \pState[9]_i_1\ : label is "soft_lutpair69";
 begin
   pAlignErr_q_reg <= \^palignerr_q_reg\;
+  \pEyeOpenCnt_reg[3]_0\ <= \^peyeopencnt_reg[3]_0\;
+  \pEyeOpenCnt_reg[3]_1\ <= \^peyeopencnt_reg[3]_1\;
+  \pEyeOpenCnt_reg[3]_2\ <= \^peyeopencnt_reg[3]_2\;
+  \pEyeOpenCnt_reg[4]_0\ <= \^peyeopencnt_reg[4]_0\;
+  \pEyeOpenCnt_reg[4]_1\ <= \^peyeopencnt_reg[4]_1\;
   pIDLY_INC <= \^pidly_inc\;
   pVld_2 <= \^pvld_2\;
 iIn_q_i_1: unisim.vcomponents.LUT6
@@ -3565,7 +3575,7 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I1 => \^peyeopencnt_reg[3]_2\,
       I2 => pEyeOpenRst,
       O => \pEyeOpenCnt[0]_i_1_n_0\
     );
@@ -3574,9 +3584,9 @@ pError_reg: unisim.vcomponents.FDRE
       INIT => X"006A"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[1]\,
+      I0 => \^peyeopencnt_reg[3]_1\,
       I1 => \pCenterTap[5]_i_3_n_0\,
-      I2 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I2 => \^peyeopencnt_reg[3]_2\,
       I3 => pEyeOpenRst,
       O => \pEyeOpenCnt[1]_i_1_n_0\
     );
@@ -3586,9 +3596,9 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I1 => \^peyeopencnt_reg[3]_0\,
+      I2 => \^peyeopencnt_reg[3]_1\,
+      I3 => \^peyeopencnt_reg[3]_2\,
       I4 => pEyeOpenRst,
       O => \pEyeOpenCnt[2]_i_1_n_0\
     );
@@ -3597,10 +3607,10 @@ pError_reg: unisim.vcomponents.FDRE
       INIT => X"000000006AAAAAAA"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[2]\,
+      I0 => \^peyeopencnt_reg[4]_1\,
+      I1 => \^peyeopencnt_reg[3]_2\,
+      I2 => \^peyeopencnt_reg[3]_1\,
+      I3 => \^peyeopencnt_reg[3]_0\,
       I4 => \pCenterTap[5]_i_3_n_0\,
       I5 => pEyeOpenRst,
       O => \pEyeOpenCnt[3]_i_1_n_0\
@@ -3611,8 +3621,8 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pEyeOpenCnt[4]_i_2_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[4]\,
+      I1 => \^peyeopencnt_reg[4]_1\,
+      I2 => \^peyeopencnt_reg[4]_0\,
       I3 => pEyeOpenRst,
       O => \pEyeOpenCnt[4]_i_1_n_0\
     );
@@ -3624,9 +3634,9 @@ pError_reg: unisim.vcomponents.FDRE
       I0 => pFoundEyeFlag_i_3_n_0,
       I1 => pState(3),
       I2 => iIn_q_i_2_n_0,
-      I3 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I4 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I5 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I3 => \^peyeopencnt_reg[3]_0\,
+      I4 => \^peyeopencnt_reg[3]_1\,
+      I5 => \^peyeopencnt_reg[3]_2\,
       O => \pEyeOpenCnt[4]_i_2_n_0\
     );
 \pEyeOpenCnt_reg[0]\: unisim.vcomponents.FDRE
@@ -3634,7 +3644,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[0]_i_1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[0]\,
+      Q => \^peyeopencnt_reg[3]_2\,
       R => '0'
     );
 \pEyeOpenCnt_reg[1]\: unisim.vcomponents.FDRE
@@ -3642,7 +3652,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[1]_i_1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[1]\,
+      Q => \^peyeopencnt_reg[3]_1\,
       R => '0'
     );
 \pEyeOpenCnt_reg[2]\: unisim.vcomponents.FDRE
@@ -3650,7 +3660,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[2]_i_1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[2]\,
+      Q => \^peyeopencnt_reg[3]_0\,
       R => '0'
     );
 \pEyeOpenCnt_reg[3]\: unisim.vcomponents.FDRE
@@ -3658,7 +3668,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[3]_i_1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[3]\,
+      Q => \^peyeopencnt_reg[4]_1\,
       R => '0'
     );
 \pEyeOpenCnt_reg[4]\: unisim.vcomponents.FDRE
@@ -3666,7 +3676,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[4]_i_1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[4]\,
+      Q => \^peyeopencnt_reg[4]_0\,
       R => '0'
     );
 pFoundEyeFlag_i_1: unisim.vcomponents.LUT6
@@ -3687,12 +3697,12 @@ pFoundEyeFlag_i_2: unisim.vcomponents.LUT6
       INIT => X"0000050008000000"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I0 => \^peyeopencnt_reg[3]_2\,
       I1 => pFoundJtrFlag,
       I2 => pFoundEyeFlag_i_5_n_0,
       I3 => pState(3),
-      I4 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I5 => \pEyeOpenCnt_reg_n_0_[4]\,
+      I4 => \^peyeopencnt_reg[3]_1\,
+      I5 => \^peyeopencnt_reg[4]_0\,
       O => pFoundEyeFlag_i_2_n_0
     );
 pFoundEyeFlag_i_3: unisim.vcomponents.LUT4
@@ -3722,8 +3732,8 @@ pFoundEyeFlag_i_5: unisim.vcomponents.LUT2
       INIT => X"E"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[3]\,
+      I0 => \^peyeopencnt_reg[3]_0\,
+      I1 => \^peyeopencnt_reg[4]_1\,
       O => pFoundEyeFlag_i_5_n_0
     );
 pFoundEyeFlag_reg: unisim.vcomponents.FDRE
@@ -4101,11 +4111,11 @@ pStateNxt: unisim.vcomponents.LUT5
       INIT => X"FFFFFFEF"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[4]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I4 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I0 => \^peyeopencnt_reg[4]_1\,
+      I1 => \^peyeopencnt_reg[3]_0\,
+      I2 => \^peyeopencnt_reg[4]_0\,
+      I3 => \^peyeopencnt_reg[3]_1\,
+      I4 => \^peyeopencnt_reg[3]_2\,
       O => \pState[5]_i_2_n_0\
     );
 \pState[6]_i_1\: unisim.vcomponents.LUT2
@@ -4297,6 +4307,11 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12 is
   port (
+    \pEyeOpenCnt_reg[4]_0\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[4]_1\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_0\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_1\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_2\ : out STD_LOGIC;
     pIDLY_CE : out STD_LOGIC;
     pIDLY_INC : out STD_LOGIC;
     pIDLY_LD : out STD_LOGIC;
@@ -4378,11 +4393,11 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12 is
   signal \pEyeOpenCnt[3]_i_1__0_n_0\ : STD_LOGIC;
   signal \pEyeOpenCnt[4]_i_1__0_n_0\ : STD_LOGIC;
   signal \pEyeOpenCnt[4]_i_2__0_n_0\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[0]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[1]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[2]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[3]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[4]\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_0\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_1\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_2\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[4]_0\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[4]_1\ : STD_LOGIC;
   signal pEyeOpenRst : STD_LOGIC;
   signal pFoundEyeFlag : STD_LOGIC;
   signal \pFoundEyeFlag_i_1__0_n_0\ : STD_LOGIC;
@@ -4475,6 +4490,11 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12 is
   attribute SOFT_HLUTNM of \pState[9]_i_1__0\ : label is "soft_lutpair42";
 begin
   pAlignErr_q_reg <= \^palignerr_q_reg\;
+  \pEyeOpenCnt_reg[3]_0\ <= \^peyeopencnt_reg[3]_0\;
+  \pEyeOpenCnt_reg[3]_1\ <= \^peyeopencnt_reg[3]_1\;
+  \pEyeOpenCnt_reg[3]_2\ <= \^peyeopencnt_reg[3]_2\;
+  \pEyeOpenCnt_reg[4]_0\ <= \^peyeopencnt_reg[4]_0\;
+  \pEyeOpenCnt_reg[4]_1\ <= \^peyeopencnt_reg[4]_1\;
   pIDLY_INC <= \^pidly_inc\;
   pVld_1 <= \^pvld_1\;
 \iIn_q_i_1__0\: unisim.vcomponents.LUT6
@@ -5176,7 +5196,7 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3__0_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I1 => \^peyeopencnt_reg[3]_2\,
       I2 => pEyeOpenRst,
       O => \pEyeOpenCnt[0]_i_1__0_n_0\
     );
@@ -5186,8 +5206,8 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3__0_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[1]\,
+      I1 => \^peyeopencnt_reg[3]_2\,
+      I2 => \^peyeopencnt_reg[3]_1\,
       I3 => pEyeOpenRst,
       O => \pEyeOpenCnt[1]_i_1__0_n_0\
     );
@@ -5197,9 +5217,9 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3__0_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[2]\,
+      I1 => \^peyeopencnt_reg[3]_1\,
+      I2 => \^peyeopencnt_reg[3]_2\,
+      I3 => \^peyeopencnt_reg[3]_0\,
       I4 => pEyeOpenRst,
       O => \pEyeOpenCnt[2]_i_1__0_n_0\
     );
@@ -5208,10 +5228,10 @@ pError_reg: unisim.vcomponents.FDRE
       INIT => X"000000006AAAAAAA"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[1]\,
+      I0 => \^peyeopencnt_reg[4]_1\,
+      I1 => \^peyeopencnt_reg[3]_0\,
+      I2 => \^peyeopencnt_reg[3]_2\,
+      I3 => \^peyeopencnt_reg[3]_1\,
       I4 => \pCenterTap[5]_i_3__0_n_0\,
       I5 => pEyeOpenRst,
       O => \pEyeOpenCnt[3]_i_1__0_n_0\
@@ -5222,8 +5242,8 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pEyeOpenCnt[4]_i_2__0_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[4]\,
+      I1 => \^peyeopencnt_reg[4]_1\,
+      I2 => \^peyeopencnt_reg[4]_0\,
       I3 => pEyeOpenRst,
       O => \pEyeOpenCnt[4]_i_1__0_n_0\
     );
@@ -5235,9 +5255,9 @@ pError_reg: unisim.vcomponents.FDRE
       I0 => \pFoundEyeFlag_i_3__0_n_0\,
       I1 => pState(3),
       I2 => \iIn_q_i_2__0_n_0\,
-      I3 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I4 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I5 => \pEyeOpenCnt_reg_n_0_[2]\,
+      I3 => \^peyeopencnt_reg[3]_1\,
+      I4 => \^peyeopencnt_reg[3]_2\,
+      I5 => \^peyeopencnt_reg[3]_0\,
       O => \pEyeOpenCnt[4]_i_2__0_n_0\
     );
 \pEyeOpenCnt_reg[0]\: unisim.vcomponents.FDRE
@@ -5245,7 +5265,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[0]_i_1__0_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[0]\,
+      Q => \^peyeopencnt_reg[3]_2\,
       R => '0'
     );
 \pEyeOpenCnt_reg[1]\: unisim.vcomponents.FDRE
@@ -5253,7 +5273,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[1]_i_1__0_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[1]\,
+      Q => \^peyeopencnt_reg[3]_1\,
       R => '0'
     );
 \pEyeOpenCnt_reg[2]\: unisim.vcomponents.FDRE
@@ -5261,7 +5281,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[2]_i_1__0_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[2]\,
+      Q => \^peyeopencnt_reg[3]_0\,
       R => '0'
     );
 \pEyeOpenCnt_reg[3]\: unisim.vcomponents.FDRE
@@ -5269,7 +5289,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[3]_i_1__0_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[3]\,
+      Q => \^peyeopencnt_reg[4]_1\,
       R => '0'
     );
 \pEyeOpenCnt_reg[4]\: unisim.vcomponents.FDRE
@@ -5277,7 +5297,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[4]_i_1__0_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[4]\,
+      Q => \^peyeopencnt_reg[4]_0\,
       R => '0'
     );
 \pFoundEyeFlag_i_1__0\: unisim.vcomponents.LUT6
@@ -5299,11 +5319,11 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => pFoundJtrFlag,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I1 => \^peyeopencnt_reg[3]_2\,
       I2 => \pFoundEyeFlag_i_5__0_n_0\,
       I3 => pState(3),
-      I4 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I5 => \pEyeOpenCnt_reg_n_0_[4]\,
+      I4 => \^peyeopencnt_reg[3]_1\,
+      I5 => \^peyeopencnt_reg[4]_0\,
       O => \pFoundEyeFlag_i_2__0_n_0\
     );
 \pFoundEyeFlag_i_3__0\: unisim.vcomponents.LUT4
@@ -5333,8 +5353,8 @@ pError_reg: unisim.vcomponents.FDRE
       INIT => X"E"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[3]\,
+      I0 => \^peyeopencnt_reg[3]_0\,
+      I1 => \^peyeopencnt_reg[4]_1\,
       O => \pFoundEyeFlag_i_5__0_n_0\
     );
 pFoundEyeFlag_reg: unisim.vcomponents.FDRE
@@ -5723,11 +5743,11 @@ pStateNxt: unisim.vcomponents.LUT5
       INIT => X"FFFFFFEF"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[4]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I4 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I0 => \^peyeopencnt_reg[4]_1\,
+      I1 => \^peyeopencnt_reg[3]_0\,
+      I2 => \^peyeopencnt_reg[4]_0\,
+      I3 => \^peyeopencnt_reg[3]_1\,
+      I4 => \^peyeopencnt_reg[3]_2\,
       O => \pState[5]_i_2__0_n_0\
     );
 \pState[6]_i_1__0\: unisim.vcomponents.LUT2
@@ -5929,6 +5949,11 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19 is
   port (
+    \pEyeOpenCnt_reg[4]_0\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[4]_1\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_0\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_1\ : out STD_LOGIC;
+    \pEyeOpenCnt_reg[3]_2\ : out STD_LOGIC;
     pIDLY_CE : out STD_LOGIC;
     pIDLY_INC : out STD_LOGIC;
     pIDLY_LD : out STD_LOGIC;
@@ -6008,11 +6033,11 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19 is
   signal \pEyeOpenCnt[3]_i_1__1_n_0\ : STD_LOGIC;
   signal \pEyeOpenCnt[4]_i_1__1_n_0\ : STD_LOGIC;
   signal \pEyeOpenCnt[4]_i_2__1_n_0\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[0]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[1]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[2]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[3]\ : STD_LOGIC;
-  signal \pEyeOpenCnt_reg_n_0_[4]\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_0\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_1\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[3]_2\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[4]_0\ : STD_LOGIC;
+  signal \^peyeopencnt_reg[4]_1\ : STD_LOGIC;
   signal pEyeOpenRst : STD_LOGIC;
   signal pFoundEyeFlag : STD_LOGIC;
   signal \pFoundEyeFlag_i_1__1_n_0\ : STD_LOGIC;
@@ -6102,6 +6127,11 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19 is
   attribute SOFT_HLUTNM of \pState[9]_i_1__1\ : label is "soft_lutpair12";
 begin
   pAlignErr_q_reg <= \^palignerr_q_reg\;
+  \pEyeOpenCnt_reg[3]_0\ <= \^peyeopencnt_reg[3]_0\;
+  \pEyeOpenCnt_reg[3]_1\ <= \^peyeopencnt_reg[3]_1\;
+  \pEyeOpenCnt_reg[3]_2\ <= \^peyeopencnt_reg[3]_2\;
+  \pEyeOpenCnt_reg[4]_0\ <= \^peyeopencnt_reg[4]_0\;
+  \pEyeOpenCnt_reg[4]_1\ <= \^peyeopencnt_reg[4]_1\;
   pIDLY_INC <= \^pidly_inc\;
   pVld_0 <= \^pvld_0\;
 \iIn_q_i_1__1\: unisim.vcomponents.LUT6
@@ -6785,7 +6815,7 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3__1_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I1 => \^peyeopencnt_reg[3]_2\,
       I2 => pEyeOpenRst,
       O => \pEyeOpenCnt[0]_i_1__1_n_0\
     );
@@ -6795,8 +6825,8 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3__1_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[1]\,
+      I1 => \^peyeopencnt_reg[3]_2\,
+      I2 => \^peyeopencnt_reg[3]_1\,
       I3 => pEyeOpenRst,
       O => \pEyeOpenCnt[1]_i_1__1_n_0\
     );
@@ -6806,9 +6836,9 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pCenterTap[5]_i_3__1_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[2]\,
+      I1 => \^peyeopencnt_reg[3]_1\,
+      I2 => \^peyeopencnt_reg[3]_2\,
+      I3 => \^peyeopencnt_reg[3]_0\,
       I4 => pEyeOpenRst,
       O => \pEyeOpenCnt[2]_i_1__1_n_0\
     );
@@ -6817,10 +6847,10 @@ pError_reg: unisim.vcomponents.FDRE
       INIT => X"000000006AAAAAAA"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[1]\,
+      I0 => \^peyeopencnt_reg[4]_1\,
+      I1 => \^peyeopencnt_reg[3]_0\,
+      I2 => \^peyeopencnt_reg[3]_2\,
+      I3 => \^peyeopencnt_reg[3]_1\,
       I4 => \pCenterTap[5]_i_3__1_n_0\,
       I5 => pEyeOpenRst,
       O => \pEyeOpenCnt[3]_i_1__1_n_0\
@@ -6831,8 +6861,8 @@ pError_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \pEyeOpenCnt[4]_i_2__1_n_0\,
-      I1 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[4]\,
+      I1 => \^peyeopencnt_reg[4]_1\,
+      I2 => \^peyeopencnt_reg[4]_0\,
       I3 => pEyeOpenRst,
       O => \pEyeOpenCnt[4]_i_1__1_n_0\
     );
@@ -6844,9 +6874,9 @@ pError_reg: unisim.vcomponents.FDRE
       I0 => \pFoundEyeFlag_i_3__1_n_0\,
       I1 => pState(3),
       I2 => \iIn_q_i_2__1_n_0\,
-      I3 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I4 => \pEyeOpenCnt_reg_n_0_[0]\,
-      I5 => \pEyeOpenCnt_reg_n_0_[2]\,
+      I3 => \^peyeopencnt_reg[3]_1\,
+      I4 => \^peyeopencnt_reg[3]_2\,
+      I5 => \^peyeopencnt_reg[3]_0\,
       O => \pEyeOpenCnt[4]_i_2__1_n_0\
     );
 \pEyeOpenCnt_reg[0]\: unisim.vcomponents.FDRE
@@ -6854,7 +6884,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[0]_i_1__1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[0]\,
+      Q => \^peyeopencnt_reg[3]_2\,
       R => '0'
     );
 \pEyeOpenCnt_reg[1]\: unisim.vcomponents.FDRE
@@ -6862,7 +6892,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[1]_i_1__1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[1]\,
+      Q => \^peyeopencnt_reg[3]_1\,
       R => '0'
     );
 \pEyeOpenCnt_reg[2]\: unisim.vcomponents.FDRE
@@ -6870,7 +6900,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[2]_i_1__1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[2]\,
+      Q => \^peyeopencnt_reg[3]_0\,
       R => '0'
     );
 \pEyeOpenCnt_reg[3]\: unisim.vcomponents.FDRE
@@ -6878,7 +6908,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[3]_i_1__1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[3]\,
+      Q => \^peyeopencnt_reg[4]_1\,
       R => '0'
     );
 \pEyeOpenCnt_reg[4]\: unisim.vcomponents.FDRE
@@ -6886,7 +6916,7 @@ pError_reg: unisim.vcomponents.FDRE
       C => PixelClk_int,
       CE => '1',
       D => \pEyeOpenCnt[4]_i_1__1_n_0\,
-      Q => \pEyeOpenCnt_reg_n_0_[4]\,
+      Q => \^peyeopencnt_reg[4]_0\,
       R => '0'
     );
 pFIFO_reg_0_31_0_5_i_1: unisim.vcomponents.LUT3
@@ -6918,11 +6948,11 @@ pFIFO_reg_0_31_0_5_i_1: unisim.vcomponents.LUT3
     )
         port map (
       I0 => pFoundJtrFlag,
-      I1 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I1 => \^peyeopencnt_reg[3]_2\,
       I2 => \pFoundEyeFlag_i_5__1_n_0\,
       I3 => pState(3),
-      I4 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I5 => \pEyeOpenCnt_reg_n_0_[4]\,
+      I4 => \^peyeopencnt_reg[3]_1\,
+      I5 => \^peyeopencnt_reg[4]_0\,
       O => \pFoundEyeFlag_i_2__1_n_0\
     );
 \pFoundEyeFlag_i_3__1\: unisim.vcomponents.LUT4
@@ -6952,8 +6982,8 @@ pFIFO_reg_0_31_0_5_i_1: unisim.vcomponents.LUT3
       INIT => X"E"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[3]\,
+      I0 => \^peyeopencnt_reg[3]_0\,
+      I1 => \^peyeopencnt_reg[4]_1\,
       O => \pFoundEyeFlag_i_5__1_n_0\
     );
 pFoundEyeFlag_reg: unisim.vcomponents.FDRE
@@ -7331,11 +7361,11 @@ pStateNxt: unisim.vcomponents.LUT5
       INIT => X"FFFFFFEF"
     )
         port map (
-      I0 => \pEyeOpenCnt_reg_n_0_[3]\,
-      I1 => \pEyeOpenCnt_reg_n_0_[2]\,
-      I2 => \pEyeOpenCnt_reg_n_0_[4]\,
-      I3 => \pEyeOpenCnt_reg_n_0_[1]\,
-      I4 => \pEyeOpenCnt_reg_n_0_[0]\,
+      I0 => \^peyeopencnt_reg[4]_1\,
+      I1 => \^peyeopencnt_reg[3]_0\,
+      I2 => \^peyeopencnt_reg[4]_0\,
+      I3 => \^peyeopencnt_reg[3]_1\,
+      I4 => \^peyeopencnt_reg[3]_2\,
       O => \pState[5]_i_2__1_n_0\
     );
 \pState[6]_i_1__1\: unisim.vcomponents.LUT2
@@ -10970,6 +11000,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder is
   port (
     pVde : out STD_LOGIC;
+    \pEyeSize[0]\ : out STD_LOGIC_VECTOR ( 4 downto 0 );
     pVld_0 : out STD_LOGIC;
     pRdy_0 : out STD_LOGIC;
     pC0 : out STD_LOGIC;
@@ -11000,9 +11031,9 @@ end Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder;
 architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder is
   signal ChannelBondX_n_11 : STD_LOGIC;
   signal ChannelBondX_n_12 : STD_LOGIC;
-  signal PhaseAlignX_n_4 : STD_LOGIC;
-  signal PhaseAlignX_n_5 : STD_LOGIC;
-  signal PhaseAlignX_n_7 : STD_LOGIC;
+  signal PhaseAlignX_n_10 : STD_LOGIC;
+  signal PhaseAlignX_n_12 : STD_LOGIC;
+  signal PhaseAlignX_n_9 : STD_LOGIC;
   signal SyncBaseOvf_n_1 : STD_LOGIC;
   signal SyncBaseOvf_n_2 : STD_LOGIC;
   signal SyncBaseOvf_n_3 : STD_LOGIC;
@@ -11145,12 +11176,17 @@ PhaseAlignX: entity work.Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
       D(8 downto 0) => pDataInRaw(8 downto 0),
       PixelClk_int => PixelClk_int,
       SS(0) => pAlignRst_reg_n_0,
-      iIn_q_reg => PhaseAlignX_n_5,
+      iIn_q_reg => PhaseAlignX_n_10,
       \out\(0) => pTimeoutOvf,
       pAlignErr_q => pAlignErr_q,
-      pAlignErr_q_reg => PhaseAlignX_n_4,
+      pAlignErr_q_reg => PhaseAlignX_n_9,
       pAllVld => \^pallvld\,
-      pBitslip_reg => PhaseAlignX_n_7,
+      pBitslip_reg => PhaseAlignX_n_12,
+      \pEyeOpenCnt_reg[3]_0\ => \pEyeSize[0]\(2),
+      \pEyeOpenCnt_reg[3]_1\ => \pEyeSize[0]\(1),
+      \pEyeOpenCnt_reg[3]_2\ => \pEyeSize[0]\(0),
+      \pEyeOpenCnt_reg[4]_0\ => \pEyeSize[0]\(4),
+      \pEyeOpenCnt_reg[4]_1\ => \pEyeSize[0]\(3),
       pIDLY_CE => pIDLY_CE,
       pIDLY_CE_reg_0(4 downto 0) => pIDLY_CNT(4 downto 0),
       pIDLY_INC => pIDLY_INC,
@@ -11177,13 +11213,13 @@ SyncBaseRst: entity work.\Arty_Z7_20_dvi2rgb_0_0_SyncBase__parameterized0_21\
       PixelClk_int => PixelClk_int,
       RefClk => RefClk,
       \out\(0) => rTimeoutRst,
-      \pState_reg[3]\ => PhaseAlignX_n_5
+      \pState_reg[3]\ => PhaseAlignX_n_10
     );
 pAlignErr_q_reg: unisim.vcomponents.FDRE
      port map (
       C => PixelClk_int,
       CE => '1',
-      D => PhaseAlignX_n_4,
+      D => PhaseAlignX_n_9,
       Q => pAlignErr_q,
       R => '0'
     );
@@ -11253,7 +11289,7 @@ pBitslip_reg: unisim.vcomponents.FDRE
      port map (
       C => PixelClk_int,
       CE => '1',
-      D => PhaseAlignX_n_7,
+      D => PhaseAlignX_n_12,
       Q => pBitslip,
       R => '0'
     );
@@ -11855,6 +11891,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0 is
   port (
+    p_5_out : out STD_LOGIC_VECTOR ( 4 downto 0 );
     pMeRdy_int_reg : out STD_LOGIC;
     pRdy_1 : out STD_LOGIC;
     pVld_1 : out STD_LOGIC;
@@ -11881,9 +11918,9 @@ entity Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0 is
 end Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0;
 
 architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0 is
-  signal PhaseAlignX_n_4 : STD_LOGIC;
-  signal PhaseAlignX_n_5 : STD_LOGIC;
-  signal PhaseAlignX_n_7 : STD_LOGIC;
+  signal PhaseAlignX_n_10 : STD_LOGIC;
+  signal PhaseAlignX_n_12 : STD_LOGIC;
+  signal PhaseAlignX_n_9 : STD_LOGIC;
   signal SyncBaseOvf_n_1 : STD_LOGIC;
   signal SyncBaseOvf_n_2 : STD_LOGIC;
   signal SyncBaseOvf_n_3 : STD_LOGIC;
@@ -12016,11 +12053,16 @@ PhaseAlignX: entity work.Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
       D(8 downto 0) => pDataInRaw(8 downto 0),
       PixelClk_int => PixelClk_int,
       SS(0) => pAlignRst_reg_n_0,
-      iIn_q_reg => PhaseAlignX_n_5,
+      iIn_q_reg => PhaseAlignX_n_10,
       \out\(0) => pTimeoutOvf,
       pAlignErr_q => pAlignErr_q,
-      pAlignErr_q_reg => PhaseAlignX_n_4,
-      pBitslip_reg => PhaseAlignX_n_7,
+      pAlignErr_q_reg => PhaseAlignX_n_9,
+      pBitslip_reg => PhaseAlignX_n_12,
+      \pEyeOpenCnt_reg[3]_0\ => p_5_out(2),
+      \pEyeOpenCnt_reg[3]_1\ => p_5_out(1),
+      \pEyeOpenCnt_reg[3]_2\ => p_5_out(0),
+      \pEyeOpenCnt_reg[4]_0\ => p_5_out(4),
+      \pEyeOpenCnt_reg[4]_1\ => p_5_out(3),
       pIDLY_CE => pIDLY_CE,
       pIDLY_CE_reg_0(4 downto 0) => pIDLY_CNT(4 downto 0),
       pIDLY_INC => pIDLY_INC,
@@ -12048,13 +12090,13 @@ SyncBaseRst: entity work.\Arty_Z7_20_dvi2rgb_0_0_SyncBase__parameterized0_14\
       PixelClk_int => PixelClk_int,
       RefClk => RefClk,
       \out\(0) => rTimeoutRst,
-      \pState_reg[3]\ => PhaseAlignX_n_5
+      \pState_reg[3]\ => PhaseAlignX_n_10
     );
 pAlignErr_q_reg: unisim.vcomponents.FDRE
      port map (
       C => PixelClk_int,
       CE => '1',
-      D => PhaseAlignX_n_4,
+      D => PhaseAlignX_n_9,
       Q => pAlignErr_q,
       R => '0'
     );
@@ -12124,7 +12166,7 @@ pBitslip_reg: unisim.vcomponents.FDRE
      port map (
       C => PixelClk_int,
       CE => '1',
-      D => PhaseAlignX_n_7,
+      D => PhaseAlignX_n_12,
       Q => pBitslip,
       R => '0'
     );
@@ -12703,6 +12745,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1 is
   port (
     pAllVldBgnFlag : out STD_LOGIC;
+    p_10_out : out STD_LOGIC_VECTOR ( 4 downto 0 );
     pVld_2 : out STD_LOGIC;
     pRdy_2 : out STD_LOGIC;
     SR : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -12728,9 +12771,9 @@ entity Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1 is
 end Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1;
 
 architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1 is
-  signal PhaseAlignX_n_4 : STD_LOGIC;
-  signal PhaseAlignX_n_5 : STD_LOGIC;
-  signal PhaseAlignX_n_7 : STD_LOGIC;
+  signal PhaseAlignX_n_10 : STD_LOGIC;
+  signal PhaseAlignX_n_12 : STD_LOGIC;
+  signal PhaseAlignX_n_9 : STD_LOGIC;
   signal SyncBaseOvf_n_1 : STD_LOGIC;
   signal SyncBaseOvf_n_2 : STD_LOGIC;
   signal SyncBaseOvf_n_3 : STD_LOGIC;
@@ -12865,13 +12908,18 @@ PhaseAlignX: entity work.Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
       D(8 downto 0) => pDataInRaw(8 downto 0),
       PixelClk_int => PixelClk_int,
       SR(0) => pAlignRst,
-      iIn_q_reg => PhaseAlignX_n_5,
+      iIn_q_reg => PhaseAlignX_n_10,
       \out\(0) => pTimeoutOvf,
       pAlignErr_q => pAlignErr_q,
-      pAlignErr_q_reg => PhaseAlignX_n_4,
+      pAlignErr_q_reg => PhaseAlignX_n_9,
       pAllVldBgnFlag0 => pAllVldBgnFlag0,
       pAllVld_q => pAllVld_q,
-      pBitslip_reg => PhaseAlignX_n_7,
+      pBitslip_reg => PhaseAlignX_n_12,
+      \pEyeOpenCnt_reg[3]_0\ => p_10_out(2),
+      \pEyeOpenCnt_reg[3]_1\ => p_10_out(1),
+      \pEyeOpenCnt_reg[3]_2\ => p_10_out(0),
+      \pEyeOpenCnt_reg[4]_0\ => p_10_out(4),
+      \pEyeOpenCnt_reg[4]_1\ => p_10_out(3),
       pIDLY_CE => pIDLY_CE,
       pIDLY_CE_reg_0(4 downto 0) => pIDLY_CNT(4 downto 0),
       pIDLY_INC => pIDLY_INC,
@@ -12898,13 +12946,13 @@ SyncBaseRst: entity work.\Arty_Z7_20_dvi2rgb_0_0_SyncBase__parameterized0\
       RefClk => RefClk,
       \oSyncStages_reg[1]\(0) => \out\(0),
       \out\(0) => rTimeoutRst,
-      \pState_reg[3]\ => PhaseAlignX_n_5
+      \pState_reg[3]\ => PhaseAlignX_n_10
     );
 pAlignErr_q_reg: unisim.vcomponents.FDRE
      port map (
       C => PixelClk_int,
       CE => '1',
-      D => PhaseAlignX_n_4,
+      D => PhaseAlignX_n_9,
       Q => pAlignErr_q,
       R => '0'
     );
@@ -12974,7 +13022,7 @@ pBitslip_reg: unisim.vcomponents.FDRE
      port map (
       C => PixelClk_int,
       CE => '1',
-      D => PhaseAlignX_n_7,
+      D => PhaseAlignX_n_12,
       Q => pBitslip,
       R => '0'
     );
@@ -13597,10 +13645,10 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_dvi2rgb is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
   signal \ChannelBondX/pAllVldBgnFlag\ : STD_LOGIC;
-  signal \DataDecoders[0].DecoderX_n_6\ : STD_LOGIC;
-  signal \DataDecoders[1].DecoderX_n_0\ : STD_LOGIC;
-  signal \DataDecoders[1].DecoderX_n_3\ : STD_LOGIC;
-  signal \DataDecoders[2].DecoderX_n_3\ : STD_LOGIC;
+  signal \DataDecoders[0].DecoderX_n_11\ : STD_LOGIC;
+  signal \DataDecoders[1].DecoderX_n_5\ : STD_LOGIC;
+  signal \DataDecoders[1].DecoderX_n_8\ : STD_LOGIC;
+  signal \DataDecoders[2].DecoderX_n_8\ : STD_LOGIC;
   signal PixelClk_int : STD_LOGIC;
   signal \^serialclk\ : STD_LOGIC;
   signal TMDS_ClockingX_n_3 : STD_LOGIC;
@@ -13608,6 +13656,13 @@ architecture STRUCTURE of Arty_Z7_20_dvi2rgb_0_0_dvi2rgb is
   signal pC0 : STD_LOGIC;
   signal pC1 : STD_LOGIC;
   signal pDataIn : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \pEyeSize[0]\ : STD_LOGIC_VECTOR ( 4 downto 0 );
+  attribute RTL_KEEP : string;
+  attribute RTL_KEEP of \pEyeSize[0]\ : signal is "true";
+  signal \pEyeSize[1]\ : STD_LOGIC_VECTOR ( 4 downto 0 );
+  attribute RTL_KEEP of \pEyeSize[1]\ : signal is "true";
+  signal \pEyeSize[2]\ : STD_LOGIC_VECTOR ( 4 downto 0 );
+  attribute RTL_KEEP of \pEyeSize[2]\ : signal is "true";
   signal pLockLostRst : STD_LOGIC;
   signal pRdy_0 : STD_LOGIC;
   signal pRdy_1 : STD_LOGIC;
@@ -13629,15 +13684,16 @@ begin
       PixelClk_int => PixelClk_int,
       Q(7 downto 0) => piData(15 downto 8),
       RefClk => RefClk,
-      SR(0) => \DataDecoders[2].DecoderX_n_3\,
+      SR(0) => \DataDecoders[2].DecoderX_n_8\,
       TMDS_Data_n(0) => TMDS_Data_n(0),
       TMDS_Data_p(0) => TMDS_Data_p(0),
-      pAligned_reg => \DataDecoders[1].DecoderX_n_0\,
+      pAligned_reg => \DataDecoders[1].DecoderX_n_5\,
       pAllVld => pAllVld,
       pAllVldBgnFlag => \ChannelBondX/pAllVldBgnFlag\,
       pC0 => pC0,
       pC1 => pC1,
-      \pDataIn_reg[7]_0\(0) => \DataDecoders[0].DecoderX_n_6\,
+      \pDataIn_reg[7]_0\(0) => \DataDecoders[0].DecoderX_n_11\,
+      \pEyeSize[0]\(4 downto 0) => \pEyeSize[0]\(4 downto 0),
       pRdy_0 => pRdy_0,
       pRdy_1 => pRdy_1,
       pRdy_2 => pRdy_2,
@@ -13655,13 +13711,13 @@ begin
       PixelClk_int => PixelClk_int,
       Q(7 downto 0) => piData(7 downto 0),
       RefClk => RefClk,
-      SR(0) => \DataDecoders[1].DecoderX_n_3\,
+      SR(0) => \DataDecoders[1].DecoderX_n_8\,
       TMDS_Data_n(0) => TMDS_Data_n(1),
       TMDS_Data_p(0) => TMDS_Data_p(1),
       pAllVld => pAllVld,
       pAllVldBgnFlag => \ChannelBondX/pAllVldBgnFlag\,
-      pMeRdy_int_reg => \DataDecoders[1].DecoderX_n_0\,
-      pMeRdy_int_reg_0(0) => \DataDecoders[0].DecoderX_n_6\,
+      pMeRdy_int_reg => \DataDecoders[1].DecoderX_n_5\,
+      pMeRdy_int_reg_0(0) => \DataDecoders[0].DecoderX_n_11\,
       pRdy_0 => pRdy_0,
       pRdy_1 => pRdy_1,
       pRdy_2 => pRdy_2,
@@ -13669,6 +13725,7 @@ begin
       pVld_0 => pVld_0,
       pVld_1 => pVld_1,
       pVld_2 => pVld_2,
+      p_5_out(4 downto 0) => \pEyeSize[1]\(4 downto 0),
       \rMMCM_Reset_q_reg[0]\ => \^serialclk\
     );
 \DataDecoders[2].DecoderX\: entity work.Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
@@ -13677,14 +13734,14 @@ begin
       PixelClk_int => PixelClk_int,
       Q(7 downto 0) => pDataIn(7 downto 0),
       RefClk => RefClk,
-      SR(0) => \DataDecoders[2].DecoderX_n_3\,
+      SR(0) => \DataDecoders[2].DecoderX_n_8\,
       TMDS_Data_n(0) => TMDS_Data_n(2),
       TMDS_Data_p(0) => TMDS_Data_p(2),
       \out\(0) => pLockLostRst,
-      pAligned_reg => \DataDecoders[1].DecoderX_n_0\,
+      pAligned_reg => \DataDecoders[1].DecoderX_n_5\,
       pAllVld => pAllVld,
       pAllVldBgnFlag => \ChannelBondX/pAllVldBgnFlag\,
-      pMeRdy_int_reg(0) => \DataDecoders[1].DecoderX_n_3\,
+      pMeRdy_int_reg(0) => \DataDecoders[1].DecoderX_n_8\,
       pRdy_0 => pRdy_0,
       pRdy_1 => pRdy_1,
       pRdy_2 => pRdy_2,
@@ -13692,6 +13749,7 @@ begin
       pVld_0 => pVld_0,
       pVld_1 => pVld_1,
       pVld_2 => pVld_2,
+      p_10_out(4 downto 0) => \pEyeSize[2]\(4 downto 0),
       \rMMCM_Reset_q_reg[0]\ => \^serialclk\
     );
 GND: unisim.vcomponents.GND

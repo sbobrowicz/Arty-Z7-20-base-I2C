@@ -1,4 +1,4 @@
-# Arty Z7-20 Base Design with SPI and GPIO Pmods
+# Arty Z7-20 Base Design with I2C and GPIO Pmods
 Created for Vivado 2017.1
 
 This project is an internal project used by Digilent for the Arty Z7-20 

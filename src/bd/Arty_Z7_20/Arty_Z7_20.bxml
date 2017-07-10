@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="Arty_Z7_20" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1499468762"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1499468762"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1499468762"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1499712867"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1499712867"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1499712867"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/Arty_Z7_20_axi_dynclk_0_0/Arty_Z7_20_axi_dynclk_0_0.xci" Type="IP">
         <Instance HierarchyPath="axi_dynclk_0"/>
@@ -284,8 +284,8 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/Arty_Z7_20_PmodGYRO_0_0/Arty_Z7_20_PmodGYRO_0_0.xci" Type="IP">
-        <Instance HierarchyPath="PmodGYRO_0"/>
+      <File Name="ip/Arty_Z7_20_PmodHYGRO_0_0/Arty_Z7_20_PmodHYGRO_0_0.xci" Type="IP">
+        <Instance HierarchyPath="PmodHYGRO_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

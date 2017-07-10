@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.1_sdx (lin64) Build 1881615 Tue May 16 18:38:00 MDT 2017
--- Date        : Tue Jun 20 16:31:17 2017
+-- Date        : Mon Jul 10 11:55:05 2017
 -- Host        : localhost.localdomain running 64-bit unknown
 -- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/sam_work/git/digilent/Arty-Z7-20-base/src/bd/Arty_Z7_20/ip/Arty_Z7_20_rgb2dvi_0_0/Arty_Z7_20_rgb2dvi_0_0_sim_netlist.vhdl
+--               /home/digilent/sam_work/git/sbobrowicz/Arty-Z7-20-base-I2C/src/bd/Arty_Z7_20/ip/Arty_Z7_20_rgb2dvi_0_0/Arty_Z7_20_rgb2dvi_0_0_sim_netlist.vhdl
 -- Design      : Arty_Z7_20_rgb2dvi_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -4554,7 +4554,15 @@ entity Arty_Z7_20_rgb2dvi_0_0_rgb2dvi is
   attribute kClkPrimitive : string;
   attribute kClkPrimitive of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is "PLL";
   attribute kClkRange : integer;
-  attribute kClkRange of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is 2;
+  attribute kClkRange of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is 1;
+  attribute kClkSwap : string;
+  attribute kClkSwap of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is "FALSE";
+  attribute kD0Swap : string;
+  attribute kD0Swap of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is "FALSE";
+  attribute kD1Swap : string;
+  attribute kD1Swap of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is "FALSE";
+  attribute kD2Swap : string;
+  attribute kD2Swap of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is "FALSE";
   attribute kGenerateSerialClk : string;
   attribute kGenerateSerialClk of Arty_Z7_20_rgb2dvi_0_0_rgb2dvi : entity is "FALSE";
   attribute kRstActiveHigh : string;
@@ -4670,7 +4678,15 @@ architecture STRUCTURE of Arty_Z7_20_rgb2dvi_0_0 is
   attribute kClkPrimitive : string;
   attribute kClkPrimitive of U0 : label is "PLL";
   attribute kClkRange : integer;
-  attribute kClkRange of U0 : label is 2;
+  attribute kClkRange of U0 : label is 1;
+  attribute kClkSwap : string;
+  attribute kClkSwap of U0 : label is "FALSE";
+  attribute kD0Swap : string;
+  attribute kD0Swap of U0 : label is "FALSE";
+  attribute kD1Swap : string;
+  attribute kD1Swap of U0 : label is "FALSE";
+  attribute kD2Swap : string;
+  attribute kD2Swap of U0 : label is "FALSE";
   attribute kGenerateSerialClk : string;
   attribute kGenerateSerialClk of U0 : label is "FALSE";
   attribute kRstActiveHigh : string;

@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.1_sdx (lin64) Build 1881615 Tue May 16 18:38:00 MDT 2017
-// Date        : Tue Jun 20 16:34:24 2017
+// Date        : Mon Jul 10 11:55:08 2017
 // Host        : localhost.localdomain running 64-bit unknown
 // Command     : write_verilog -force -mode funcsim
-//               /home/digilent/sam_work/git/digilent/Arty-Z7-20-base/src/bd/Arty_Z7_20/ip/Arty_Z7_20_dvi2rgb_0_0/Arty_Z7_20_dvi2rgb_0_0_sim_netlist.v
+//               /home/digilent/sam_work/git/sbobrowicz/Arty-Z7-20-base-I2C/src/bd/Arty_Z7_20/ip/Arty_Z7_20_dvi2rgb_0_0/Arty_Z7_20_dvi2rgb_0_0_sim_netlist.v
 // Design      : Arty_Z7_20_dvi2rgb_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -2832,7 +2832,12 @@ endmodule
 
 (* ORIG_REF_NAME = "PhaseAlign" *) 
 module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
-   (pIDLY_CE,
+   (\pEyeOpenCnt_reg[4]_0 ,
+    \pEyeOpenCnt_reg[4]_1 ,
+    \pEyeOpenCnt_reg[3]_0 ,
+    \pEyeOpenCnt_reg[3]_1 ,
+    \pEyeOpenCnt_reg[3]_2 ,
+    pIDLY_CE,
     pIDLY_INC,
     pIDLY_LD,
     pVld_2,
@@ -2849,6 +2854,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
     D,
     pIDLY_CE_reg_0,
     SR);
+  output \pEyeOpenCnt_reg[4]_0 ;
+  output \pEyeOpenCnt_reg[4]_1 ;
+  output \pEyeOpenCnt_reg[3]_0 ;
+  output \pEyeOpenCnt_reg[3]_1 ;
+  output \pEyeOpenCnt_reg[3]_2 ;
   output pIDLY_CE;
   output pIDLY_INC;
   output pIDLY_LD;
@@ -2925,11 +2935,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
   wire \pEyeOpenCnt[3]_i_1_n_0 ;
   wire \pEyeOpenCnt[4]_i_1_n_0 ;
   wire \pEyeOpenCnt[4]_i_2_n_0 ;
-  wire \pEyeOpenCnt_reg_n_0_[0] ;
-  wire \pEyeOpenCnt_reg_n_0_[1] ;
-  wire \pEyeOpenCnt_reg_n_0_[2] ;
-  wire \pEyeOpenCnt_reg_n_0_[3] ;
-  wire \pEyeOpenCnt_reg_n_0_[4] ;
+  wire \pEyeOpenCnt_reg[3]_0 ;
+  wire \pEyeOpenCnt_reg[3]_1 ;
+  wire \pEyeOpenCnt_reg[3]_2 ;
+  wire \pEyeOpenCnt_reg[4]_0 ;
+  wire \pEyeOpenCnt_reg[4]_1 ;
   wire pEyeOpenRst;
   wire pFoundEyeFlag;
   wire pFoundEyeFlag_i_1_n_0;
@@ -3514,16 +3524,16 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
     .INIT(8'h06)) 
     \pEyeOpenCnt[0]_i_1 
        (.I0(\pCenterTap[5]_i_3_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pEyeOpenRst),
         .O(\pEyeOpenCnt[0]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT4 #(
     .INIT(16'h006A)) 
     \pEyeOpenCnt[1]_i_1 
-       (.I0(\pEyeOpenCnt_reg_n_0_[1] ),
+       (.I0(\pEyeOpenCnt_reg[3]_1 ),
         .I1(\pCenterTap[5]_i_3_n_0 ),
-        .I2(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I2(\pEyeOpenCnt_reg[3]_2 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair68" *) 
@@ -3531,18 +3541,18 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
     .INIT(32'h00006CCC)) 
     \pEyeOpenCnt[2]_i_1 
        (.I0(\pCenterTap[5]_i_3_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I1(\pEyeOpenCnt_reg[3]_0 ),
+        .I2(\pEyeOpenCnt_reg[3]_1 ),
+        .I3(\pEyeOpenCnt_reg[3]_2 ),
         .I4(pEyeOpenRst),
         .O(\pEyeOpenCnt[2]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h000000006AAAAAAA)) 
     \pEyeOpenCnt[3]_i_1 
-       (.I0(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[2] ),
+       (.I0(\pEyeOpenCnt_reg[4]_1 ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
+        .I2(\pEyeOpenCnt_reg[3]_1 ),
+        .I3(\pEyeOpenCnt_reg[3]_0 ),
         .I4(\pCenterTap[5]_i_3_n_0 ),
         .I5(pEyeOpenRst),
         .O(\pEyeOpenCnt[3]_i_1_n_0 ));
@@ -3550,8 +3560,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
     .INIT(16'h0078)) 
     \pEyeOpenCnt[4]_i_1 
        (.I0(\pEyeOpenCnt[4]_i_2_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[4] ),
+        .I1(\pEyeOpenCnt_reg[4]_1 ),
+        .I2(\pEyeOpenCnt_reg[4]_0 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[4]_i_1_n_0 ));
   LUT6 #(
@@ -3560,39 +3570,39 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
        (.I0(pFoundEyeFlag_i_3_n_0),
         .I1(pState[3]),
         .I2(iIn_q_i_2_n_0),
-        .I3(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I4(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I5(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I3(\pEyeOpenCnt_reg[3]_0 ),
+        .I4(\pEyeOpenCnt_reg[3]_1 ),
+        .I5(\pEyeOpenCnt_reg[3]_2 ),
         .O(\pEyeOpenCnt[4]_i_2_n_0 ));
   FDRE \pEyeOpenCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[0]_i_1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[0] ),
+        .Q(\pEyeOpenCnt_reg[3]_2 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[1] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[1]_i_1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[1] ),
+        .Q(\pEyeOpenCnt_reg[3]_1 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[2] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[2]_i_1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[2] ),
+        .Q(\pEyeOpenCnt_reg[3]_0 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[3] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[3]_i_1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[3] ),
+        .Q(\pEyeOpenCnt_reg[4]_1 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[4] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[4]_i_1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[4] ),
+        .Q(\pEyeOpenCnt_reg[4]_0 ),
         .R(1'b0));
   LUT6 #(
     .INIT(64'hFFFFBBFB0000AA0A)) 
@@ -3607,12 +3617,12 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
   LUT6 #(
     .INIT(64'h0000050008000000)) 
     pFoundEyeFlag_i_2
-       (.I0(\pEyeOpenCnt_reg_n_0_[0] ),
+       (.I0(\pEyeOpenCnt_reg[3]_2 ),
         .I1(pFoundJtrFlag),
         .I2(pFoundEyeFlag_i_5_n_0),
         .I3(pState[3]),
-        .I4(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I5(\pEyeOpenCnt_reg_n_0_[4] ),
+        .I4(\pEyeOpenCnt_reg[3]_1 ),
+        .I5(\pEyeOpenCnt_reg[4]_0 ),
         .O(pFoundEyeFlag_i_2_n_0));
   (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT4 #(
@@ -3636,8 +3646,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
   LUT2 #(
     .INIT(4'hE)) 
     pFoundEyeFlag_i_5
-       (.I0(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[3] ),
+       (.I0(\pEyeOpenCnt_reg[3]_0 ),
+        .I1(\pEyeOpenCnt_reg[4]_1 ),
         .O(pFoundEyeFlag_i_5_n_0));
   FDRE pFoundEyeFlag_reg
        (.C(PixelClk_int),
@@ -3928,11 +3938,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign
   LUT5 #(
     .INIT(32'hFFFFFFEF)) 
     \pState[5]_i_2 
-       (.I0(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[4] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I4(\pEyeOpenCnt_reg_n_0_[0] ),
+       (.I0(\pEyeOpenCnt_reg[4]_1 ),
+        .I1(\pEyeOpenCnt_reg[3]_0 ),
+        .I2(\pEyeOpenCnt_reg[4]_0 ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
+        .I4(\pEyeOpenCnt_reg[3]_2 ),
         .O(\pState[5]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT2 #(
@@ -4077,7 +4087,12 @@ endmodule
 
 (* ORIG_REF_NAME = "PhaseAlign" *) 
 module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
-   (pIDLY_CE,
+   (\pEyeOpenCnt_reg[4]_0 ,
+    \pEyeOpenCnt_reg[4]_1 ,
+    \pEyeOpenCnt_reg[3]_0 ,
+    \pEyeOpenCnt_reg[3]_1 ,
+    \pEyeOpenCnt_reg[3]_2 ,
+    pIDLY_CE,
     pIDLY_INC,
     pIDLY_LD,
     pVld_1,
@@ -4093,6 +4108,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
     D,
     pIDLY_CE_reg_0,
     SS);
+  output \pEyeOpenCnt_reg[4]_0 ;
+  output \pEyeOpenCnt_reg[4]_1 ;
+  output \pEyeOpenCnt_reg[3]_0 ;
+  output \pEyeOpenCnt_reg[3]_1 ;
+  output \pEyeOpenCnt_reg[3]_2 ;
   output pIDLY_CE;
   output pIDLY_INC;
   output pIDLY_LD;
@@ -4176,11 +4196,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
   wire \pEyeOpenCnt[3]_i_1__0_n_0 ;
   wire \pEyeOpenCnt[4]_i_1__0_n_0 ;
   wire \pEyeOpenCnt[4]_i_2__0_n_0 ;
-  wire \pEyeOpenCnt_reg_n_0_[0] ;
-  wire \pEyeOpenCnt_reg_n_0_[1] ;
-  wire \pEyeOpenCnt_reg_n_0_[2] ;
-  wire \pEyeOpenCnt_reg_n_0_[3] ;
-  wire \pEyeOpenCnt_reg_n_0_[4] ;
+  wire \pEyeOpenCnt_reg[3]_0 ;
+  wire \pEyeOpenCnt_reg[3]_1 ;
+  wire \pEyeOpenCnt_reg[3]_2 ;
+  wire \pEyeOpenCnt_reg[4]_0 ;
+  wire \pEyeOpenCnt_reg[4]_1 ;
   wire pEyeOpenRst;
   wire pFoundEyeFlag;
   wire pFoundEyeFlag_i_1__0_n_0;
@@ -4770,7 +4790,7 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
     .INIT(8'h06)) 
     \pEyeOpenCnt[0]_i_1__0 
        (.I0(\pCenterTap[5]_i_3__0_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pEyeOpenRst),
         .O(\pEyeOpenCnt[0]_i_1__0_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair41" *) 
@@ -4778,8 +4798,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
     .INIT(16'h0078)) 
     \pEyeOpenCnt[1]_i_1__0 
        (.I0(\pCenterTap[5]_i_3__0_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[1] ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
+        .I2(\pEyeOpenCnt_reg[3]_1 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[1]_i_1__0_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair41" *) 
@@ -4787,18 +4807,18 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
     .INIT(32'h00007F80)) 
     \pEyeOpenCnt[2]_i_1__0 
        (.I0(\pCenterTap[5]_i_3__0_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[2] ),
+        .I1(\pEyeOpenCnt_reg[3]_1 ),
+        .I2(\pEyeOpenCnt_reg[3]_2 ),
+        .I3(\pEyeOpenCnt_reg[3]_0 ),
         .I4(pEyeOpenRst),
         .O(\pEyeOpenCnt[2]_i_1__0_n_0 ));
   LUT6 #(
     .INIT(64'h000000006AAAAAAA)) 
     \pEyeOpenCnt[3]_i_1__0 
-       (.I0(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[1] ),
+       (.I0(\pEyeOpenCnt_reg[4]_1 ),
+        .I1(\pEyeOpenCnt_reg[3]_0 ),
+        .I2(\pEyeOpenCnt_reg[3]_2 ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
         .I4(\pCenterTap[5]_i_3__0_n_0 ),
         .I5(pEyeOpenRst),
         .O(\pEyeOpenCnt[3]_i_1__0_n_0 ));
@@ -4806,8 +4826,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
     .INIT(16'h0078)) 
     \pEyeOpenCnt[4]_i_1__0 
        (.I0(\pEyeOpenCnt[4]_i_2__0_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[4] ),
+        .I1(\pEyeOpenCnt_reg[4]_1 ),
+        .I2(\pEyeOpenCnt_reg[4]_0 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[4]_i_1__0_n_0 ));
   LUT6 #(
@@ -4816,39 +4836,39 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
        (.I0(pFoundEyeFlag_i_3__0_n_0),
         .I1(pState[3]),
         .I2(iIn_q_i_2__0_n_0),
-        .I3(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I4(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I5(\pEyeOpenCnt_reg_n_0_[2] ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
+        .I4(\pEyeOpenCnt_reg[3]_2 ),
+        .I5(\pEyeOpenCnt_reg[3]_0 ),
         .O(\pEyeOpenCnt[4]_i_2__0_n_0 ));
   FDRE \pEyeOpenCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[0]_i_1__0_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[0] ),
+        .Q(\pEyeOpenCnt_reg[3]_2 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[1] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[1]_i_1__0_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[1] ),
+        .Q(\pEyeOpenCnt_reg[3]_1 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[2] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[2]_i_1__0_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[2] ),
+        .Q(\pEyeOpenCnt_reg[3]_0 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[3] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[3]_i_1__0_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[3] ),
+        .Q(\pEyeOpenCnt_reg[4]_1 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[4] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[4]_i_1__0_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[4] ),
+        .Q(\pEyeOpenCnt_reg[4]_0 ),
         .R(1'b0));
   LUT6 #(
     .INIT(64'hFFFFBBFB0000AA0A)) 
@@ -4864,11 +4884,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
     .INIT(64'h0000030008000000)) 
     pFoundEyeFlag_i_2__0
        (.I0(pFoundJtrFlag),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pFoundEyeFlag_i_5__0_n_0),
         .I3(pState[3]),
-        .I4(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I5(\pEyeOpenCnt_reg_n_0_[4] ),
+        .I4(\pEyeOpenCnt_reg[3]_1 ),
+        .I5(\pEyeOpenCnt_reg[4]_0 ),
         .O(pFoundEyeFlag_i_2__0_n_0));
   (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
@@ -4892,8 +4912,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
   LUT2 #(
     .INIT(4'hE)) 
     pFoundEyeFlag_i_5__0
-       (.I0(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[3] ),
+       (.I0(\pEyeOpenCnt_reg[3]_0 ),
+        .I1(\pEyeOpenCnt_reg[4]_1 ),
         .O(pFoundEyeFlag_i_5__0_n_0));
   FDRE pFoundEyeFlag_reg
        (.C(PixelClk_int),
@@ -5194,11 +5214,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_12
   LUT5 #(
     .INIT(32'hFFFFFFEF)) 
     \pState[5]_i_2__0 
-       (.I0(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[4] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I4(\pEyeOpenCnt_reg_n_0_[0] ),
+       (.I0(\pEyeOpenCnt_reg[4]_1 ),
+        .I1(\pEyeOpenCnt_reg[3]_0 ),
+        .I2(\pEyeOpenCnt_reg[4]_0 ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
+        .I4(\pEyeOpenCnt_reg[3]_2 ),
         .O(\pState[5]_i_2__0_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT2 #(
@@ -5350,7 +5370,12 @@ endmodule
 
 (* ORIG_REF_NAME = "PhaseAlign" *) 
 module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
-   (pIDLY_CE,
+   (\pEyeOpenCnt_reg[4]_0 ,
+    \pEyeOpenCnt_reg[4]_1 ,
+    \pEyeOpenCnt_reg[3]_0 ,
+    \pEyeOpenCnt_reg[3]_1 ,
+    \pEyeOpenCnt_reg[3]_2 ,
+    pIDLY_CE,
     pIDLY_INC,
     pIDLY_LD,
     pVld_0,
@@ -5366,6 +5391,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
     D,
     pIDLY_CE_reg_0,
     SS);
+  output \pEyeOpenCnt_reg[4]_0 ;
+  output \pEyeOpenCnt_reg[4]_1 ;
+  output \pEyeOpenCnt_reg[3]_0 ;
+  output \pEyeOpenCnt_reg[3]_1 ;
+  output \pEyeOpenCnt_reg[3]_2 ;
   output pIDLY_CE;
   output pIDLY_INC;
   output pIDLY_LD;
@@ -5448,11 +5478,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
   wire \pEyeOpenCnt[3]_i_1__1_n_0 ;
   wire \pEyeOpenCnt[4]_i_1__1_n_0 ;
   wire \pEyeOpenCnt[4]_i_2__1_n_0 ;
-  wire \pEyeOpenCnt_reg_n_0_[0] ;
-  wire \pEyeOpenCnt_reg_n_0_[1] ;
-  wire \pEyeOpenCnt_reg_n_0_[2] ;
-  wire \pEyeOpenCnt_reg_n_0_[3] ;
-  wire \pEyeOpenCnt_reg_n_0_[4] ;
+  wire \pEyeOpenCnt_reg[3]_0 ;
+  wire \pEyeOpenCnt_reg[3]_1 ;
+  wire \pEyeOpenCnt_reg[3]_2 ;
+  wire \pEyeOpenCnt_reg[4]_0 ;
+  wire \pEyeOpenCnt_reg[4]_1 ;
   wire pEyeOpenRst;
   wire pFoundEyeFlag;
   wire pFoundEyeFlag_i_1__1_n_0;
@@ -6027,7 +6057,7 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
     .INIT(8'h06)) 
     \pEyeOpenCnt[0]_i_1__1 
        (.I0(\pCenterTap[5]_i_3__1_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pEyeOpenRst),
         .O(\pEyeOpenCnt[0]_i_1__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair11" *) 
@@ -6035,8 +6065,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
     .INIT(16'h0078)) 
     \pEyeOpenCnt[1]_i_1__1 
        (.I0(\pCenterTap[5]_i_3__1_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[1] ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
+        .I2(\pEyeOpenCnt_reg[3]_1 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[1]_i_1__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair11" *) 
@@ -6044,18 +6074,18 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
     .INIT(32'h00007F80)) 
     \pEyeOpenCnt[2]_i_1__1 
        (.I0(\pCenterTap[5]_i_3__1_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[2] ),
+        .I1(\pEyeOpenCnt_reg[3]_1 ),
+        .I2(\pEyeOpenCnt_reg[3]_2 ),
+        .I3(\pEyeOpenCnt_reg[3]_0 ),
         .I4(pEyeOpenRst),
         .O(\pEyeOpenCnt[2]_i_1__1_n_0 ));
   LUT6 #(
     .INIT(64'h000000006AAAAAAA)) 
     \pEyeOpenCnt[3]_i_1__1 
-       (.I0(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[1] ),
+       (.I0(\pEyeOpenCnt_reg[4]_1 ),
+        .I1(\pEyeOpenCnt_reg[3]_0 ),
+        .I2(\pEyeOpenCnt_reg[3]_2 ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
         .I4(\pCenterTap[5]_i_3__1_n_0 ),
         .I5(pEyeOpenRst),
         .O(\pEyeOpenCnt[3]_i_1__1_n_0 ));
@@ -6063,8 +6093,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
     .INIT(16'h0078)) 
     \pEyeOpenCnt[4]_i_1__1 
        (.I0(\pEyeOpenCnt[4]_i_2__1_n_0 ),
-        .I1(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[4] ),
+        .I1(\pEyeOpenCnt_reg[4]_1 ),
+        .I2(\pEyeOpenCnt_reg[4]_0 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[4]_i_1__1_n_0 ));
   LUT6 #(
@@ -6073,39 +6103,39 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
        (.I0(pFoundEyeFlag_i_3__1_n_0),
         .I1(pState[3]),
         .I2(iIn_q_i_2__1_n_0),
-        .I3(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I4(\pEyeOpenCnt_reg_n_0_[0] ),
-        .I5(\pEyeOpenCnt_reg_n_0_[2] ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
+        .I4(\pEyeOpenCnt_reg[3]_2 ),
+        .I5(\pEyeOpenCnt_reg[3]_0 ),
         .O(\pEyeOpenCnt[4]_i_2__1_n_0 ));
   FDRE \pEyeOpenCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[0]_i_1__1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[0] ),
+        .Q(\pEyeOpenCnt_reg[3]_2 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[1] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[1]_i_1__1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[1] ),
+        .Q(\pEyeOpenCnt_reg[3]_1 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[2] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[2]_i_1__1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[2] ),
+        .Q(\pEyeOpenCnt_reg[3]_0 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[3] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[3]_i_1__1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[3] ),
+        .Q(\pEyeOpenCnt_reg[4]_1 ),
         .R(1'b0));
   FDRE \pEyeOpenCnt_reg[4] 
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(\pEyeOpenCnt[4]_i_1__1_n_0 ),
-        .Q(\pEyeOpenCnt_reg_n_0_[4] ),
+        .Q(\pEyeOpenCnt_reg[4]_0 ),
         .R(1'b0));
   LUT3 #(
     .INIT(8'h80)) 
@@ -6128,11 +6158,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
     .INIT(64'h0000030008000000)) 
     pFoundEyeFlag_i_2__1
        (.I0(pFoundJtrFlag),
-        .I1(\pEyeOpenCnt_reg_n_0_[0] ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pFoundEyeFlag_i_5__1_n_0),
         .I3(pState[3]),
-        .I4(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I5(\pEyeOpenCnt_reg_n_0_[4] ),
+        .I4(\pEyeOpenCnt_reg[3]_1 ),
+        .I5(\pEyeOpenCnt_reg[4]_0 ),
         .O(pFoundEyeFlag_i_2__1_n_0));
   (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT4 #(
@@ -6156,8 +6186,8 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
   LUT2 #(
     .INIT(4'hE)) 
     pFoundEyeFlag_i_5__1
-       (.I0(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[3] ),
+       (.I0(\pEyeOpenCnt_reg[3]_0 ),
+        .I1(\pEyeOpenCnt_reg[4]_1 ),
         .O(pFoundEyeFlag_i_5__1_n_0));
   FDRE pFoundEyeFlag_reg
        (.C(PixelClk_int),
@@ -6449,11 +6479,11 @@ module Arty_Z7_20_dvi2rgb_0_0_PhaseAlign_19
   LUT5 #(
     .INIT(32'hFFFFFFEF)) 
     \pState[5]_i_2__1 
-       (.I0(\pEyeOpenCnt_reg_n_0_[3] ),
-        .I1(\pEyeOpenCnt_reg_n_0_[2] ),
-        .I2(\pEyeOpenCnt_reg_n_0_[4] ),
-        .I3(\pEyeOpenCnt_reg_n_0_[1] ),
-        .I4(\pEyeOpenCnt_reg_n_0_[0] ),
+       (.I0(\pEyeOpenCnt_reg[4]_1 ),
+        .I1(\pEyeOpenCnt_reg[3]_0 ),
+        .I2(\pEyeOpenCnt_reg[4]_0 ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
+        .I4(\pEyeOpenCnt_reg[3]_2 ),
         .O(\pState[5]_i_2__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
@@ -8123,6 +8153,7 @@ endmodule
 (* ORIG_REF_NAME = "TMDS_Decoder" *) 
 module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder
    (pVde,
+    \pEyeSize[0] ,
     pVld_0,
     pRdy_0,
     pC0,
@@ -8146,6 +8177,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder
     pRst_n,
     pAllVldBgnFlag);
   output pVde;
+  output [4:0]\pEyeSize[0] ;
   output pVld_0;
   output pRdy_0;
   output pC0;
@@ -8173,9 +8205,9 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder
   wire CLKB;
   wire ChannelBondX_n_11;
   wire ChannelBondX_n_12;
-  wire PhaseAlignX_n_4;
-  wire PhaseAlignX_n_5;
-  wire PhaseAlignX_n_7;
+  wire PhaseAlignX_n_10;
+  wire PhaseAlignX_n_12;
+  wire PhaseAlignX_n_9;
   wire PixelClk_int;
   wire [7:0]Q;
   wire RefClk;
@@ -8201,6 +8233,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder
   wire [7:0]pDataIn;
   wire [9:0]pDataInRaw;
   wire [0:0]\pDataIn_reg[7]_0 ;
+  wire [4:0]\pEyeSize[0] ;
   wire pIDLY_CE;
   wire [4:0]pIDLY_CNT;
   wire pIDLY_INC;
@@ -8325,12 +8358,17 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder
        (.D(pDataInRaw[8:0]),
         .PixelClk_int(PixelClk_int),
         .SS(pAlignRst_reg_n_0),
-        .iIn_q_reg(PhaseAlignX_n_5),
+        .iIn_q_reg(PhaseAlignX_n_10),
         .out(pTimeoutOvf),
         .pAlignErr_q(pAlignErr_q),
-        .pAlignErr_q_reg(PhaseAlignX_n_4),
+        .pAlignErr_q_reg(PhaseAlignX_n_9),
         .pAllVld(pAllVld),
-        .pBitslip_reg(PhaseAlignX_n_7),
+        .pBitslip_reg(PhaseAlignX_n_12),
+        .\pEyeOpenCnt_reg[3]_0 (\pEyeSize[0] [2]),
+        .\pEyeOpenCnt_reg[3]_1 (\pEyeSize[0] [1]),
+        .\pEyeOpenCnt_reg[3]_2 (\pEyeSize[0] [0]),
+        .\pEyeOpenCnt_reg[4]_0 (\pEyeSize[0] [4]),
+        .\pEyeOpenCnt_reg[4]_1 (\pEyeSize[0] [3]),
         .pIDLY_CE(pIDLY_CE),
         .pIDLY_CE_reg_0(pIDLY_CNT),
         .pIDLY_INC(pIDLY_INC),
@@ -8353,11 +8391,11 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder
         .PixelClk_int(PixelClk_int),
         .RefClk(RefClk),
         .out(rTimeoutRst),
-        .\pState_reg[3] (PhaseAlignX_n_5));
+        .\pState_reg[3] (PhaseAlignX_n_10));
   FDRE pAlignErr_q_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(PhaseAlignX_n_4),
+        .D(PhaseAlignX_n_9),
         .Q(pAlignErr_q),
         .R(1'b0));
   LUT5 #(
@@ -8410,7 +8448,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder
   FDRE pBitslip_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(PhaseAlignX_n_7),
+        .D(PhaseAlignX_n_12),
         .Q(pBitslip),
         .R(1'b0));
   FDRE pC0_reg
@@ -8797,7 +8835,8 @@ endmodule
 
 (* ORIG_REF_NAME = "TMDS_Decoder" *) 
 module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0
-   (pMeRdy_int_reg,
+   (p_5_out,
+    pMeRdy_int_reg,
     pRdy_1,
     pVld_1,
     SR,
@@ -8817,6 +8856,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0
     pAllVldBgnFlag,
     pAllVld,
     pMeRdy_int_reg_0);
+  output [4:0]p_5_out;
   output pMeRdy_int_reg;
   output pRdy_1;
   output pVld_1;
@@ -8840,9 +8880,9 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0
 
   wire [0:0]AS;
   wire CLKB;
-  wire PhaseAlignX_n_4;
-  wire PhaseAlignX_n_5;
-  wire PhaseAlignX_n_7;
+  wire PhaseAlignX_n_10;
+  wire PhaseAlignX_n_12;
+  wire PhaseAlignX_n_9;
   wire PixelClk_int;
   wire [7:0]Q;
   wire RefClk;
@@ -8878,6 +8918,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0
   wire pVld_0;
   wire pVld_1;
   wire pVld_2;
+  wire [4:0]p_5_out;
   wire \rMMCM_Reset_q_reg[0] ;
   wire \rTimeoutCnt[0]_i_1__0_n_0 ;
   wire \rTimeoutCnt[0]_i_3__0_n_0 ;
@@ -8983,11 +9024,16 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0
        (.D(pDataInRaw[8:0]),
         .PixelClk_int(PixelClk_int),
         .SS(pAlignRst_reg_n_0),
-        .iIn_q_reg(PhaseAlignX_n_5),
+        .iIn_q_reg(PhaseAlignX_n_10),
         .out(pTimeoutOvf),
         .pAlignErr_q(pAlignErr_q),
-        .pAlignErr_q_reg(PhaseAlignX_n_4),
-        .pBitslip_reg(PhaseAlignX_n_7),
+        .pAlignErr_q_reg(PhaseAlignX_n_9),
+        .pBitslip_reg(PhaseAlignX_n_12),
+        .\pEyeOpenCnt_reg[3]_0 (p_5_out[2]),
+        .\pEyeOpenCnt_reg[3]_1 (p_5_out[1]),
+        .\pEyeOpenCnt_reg[3]_2 (p_5_out[0]),
+        .\pEyeOpenCnt_reg[4]_0 (p_5_out[4]),
+        .\pEyeOpenCnt_reg[4]_1 (p_5_out[3]),
         .pIDLY_CE(pIDLY_CE),
         .pIDLY_CE_reg_0(pIDLY_CNT),
         .pIDLY_INC(pIDLY_INC),
@@ -9011,11 +9057,11 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0
         .PixelClk_int(PixelClk_int),
         .RefClk(RefClk),
         .out(rTimeoutRst),
-        .\pState_reg[3] (PhaseAlignX_n_5));
+        .\pState_reg[3] (PhaseAlignX_n_10));
   FDRE pAlignErr_q_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(PhaseAlignX_n_4),
+        .D(PhaseAlignX_n_9),
         .Q(pAlignErr_q),
         .R(1'b0));
   LUT5 #(
@@ -9068,7 +9114,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_0
   FDRE pBitslip_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(PhaseAlignX_n_7),
+        .D(PhaseAlignX_n_12),
         .Q(pBitslip),
         .R(1'b0));
   FDRE \pDataIn_reg[0] 
@@ -9438,6 +9484,7 @@ endmodule
 (* ORIG_REF_NAME = "TMDS_Decoder" *) 
 module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
    (pAllVldBgnFlag,
+    p_10_out,
     pVld_2,
     pRdy_2,
     SR,
@@ -9458,6 +9505,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
     pRst_n,
     pMeRdy_int_reg);
   output pAllVldBgnFlag;
+  output [4:0]p_10_out;
   output pVld_2;
   output pRdy_2;
   output [0:0]SR;
@@ -9479,9 +9527,9 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
   input [0:0]pMeRdy_int_reg;
 
   wire CLKB;
-  wire PhaseAlignX_n_4;
-  wire PhaseAlignX_n_5;
-  wire PhaseAlignX_n_7;
+  wire PhaseAlignX_n_10;
+  wire PhaseAlignX_n_12;
+  wire PhaseAlignX_n_9;
   wire PixelClk_int;
   wire [7:0]Q;
   wire RefClk;
@@ -9520,6 +9568,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
   wire pVld_0;
   wire pVld_1;
   wire pVld_2;
+  wire [4:0]p_10_out;
   wire \rMMCM_Reset_q_reg[0] ;
   wire \rTimeoutCnt[0]_i_1_n_0 ;
   wire \rTimeoutCnt[0]_i_3_n_0 ;
@@ -9627,13 +9676,18 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
        (.D(pDataInRaw[8:0]),
         .PixelClk_int(PixelClk_int),
         .SR(pAlignRst),
-        .iIn_q_reg(PhaseAlignX_n_5),
+        .iIn_q_reg(PhaseAlignX_n_10),
         .out(pTimeoutOvf),
         .pAlignErr_q(pAlignErr_q),
-        .pAlignErr_q_reg(PhaseAlignX_n_4),
+        .pAlignErr_q_reg(PhaseAlignX_n_9),
         .pAllVldBgnFlag0(pAllVldBgnFlag0),
         .pAllVld_q(pAllVld_q),
-        .pBitslip_reg(PhaseAlignX_n_7),
+        .pBitslip_reg(PhaseAlignX_n_12),
+        .\pEyeOpenCnt_reg[3]_0 (p_10_out[2]),
+        .\pEyeOpenCnt_reg[3]_1 (p_10_out[1]),
+        .\pEyeOpenCnt_reg[3]_2 (p_10_out[0]),
+        .\pEyeOpenCnt_reg[4]_0 (p_10_out[4]),
+        .\pEyeOpenCnt_reg[4]_1 (p_10_out[3]),
         .pIDLY_CE(pIDLY_CE),
         .pIDLY_CE_reg_0(pIDLY_CNT),
         .pIDLY_INC(pIDLY_INC),
@@ -9656,11 +9710,11 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
         .RefClk(RefClk),
         .\oSyncStages_reg[1] (out),
         .out(rTimeoutRst),
-        .\pState_reg[3] (PhaseAlignX_n_5));
+        .\pState_reg[3] (PhaseAlignX_n_10));
   FDRE pAlignErr_q_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(PhaseAlignX_n_4),
+        .D(PhaseAlignX_n_9),
         .Q(pAlignErr_q),
         .R(1'b0));
   LUT5 #(
@@ -9713,7 +9767,7 @@ module Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1
   FDRE pBitslip_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(PhaseAlignX_n_7),
+        .D(PhaseAlignX_n_12),
         .Q(pBitslip),
         .R(1'b0));
   FDRE \pDataIn_reg[0] 
@@ -10907,10 +10961,10 @@ module Arty_Z7_20_dvi2rgb_0_0_dvi2rgb
   wire DDC_SCL_I;
   wire DDC_SDA_I;
   wire DDC_SDA_T;
-  wire \DataDecoders[0].DecoderX_n_6 ;
-  wire \DataDecoders[1].DecoderX_n_0 ;
-  wire \DataDecoders[1].DecoderX_n_3 ;
-  wire \DataDecoders[2].DecoderX_n_3 ;
+  wire \DataDecoders[0].DecoderX_n_11 ;
+  wire \DataDecoders[1].DecoderX_n_5 ;
+  wire \DataDecoders[1].DecoderX_n_8 ;
+  wire \DataDecoders[2].DecoderX_n_8 ;
   wire PixelClk;
   wire PixelClk_int;
   wire RefClk;
@@ -10926,6 +10980,9 @@ module Arty_Z7_20_dvi2rgb_0_0_dvi2rgb
   wire pC0;
   wire pC1;
   wire [7:0]pDataIn;
+  (* RTL_KEEP = "true" *) wire [4:0]\pEyeSize[0] ;
+  (* RTL_KEEP = "true" *) wire [4:0]\pEyeSize[1] ;
+  (* RTL_KEEP = "true" *) wire [4:0]\pEyeSize[2] ;
   wire pLockLostRst;
   wire pRdy_0;
   wire pRdy_1;
@@ -10950,15 +11007,16 @@ module Arty_Z7_20_dvi2rgb_0_0_dvi2rgb
         .PixelClk_int(PixelClk_int),
         .Q(piData[15:8]),
         .RefClk(RefClk),
-        .SR(\DataDecoders[2].DecoderX_n_3 ),
+        .SR(\DataDecoders[2].DecoderX_n_8 ),
         .TMDS_Data_n(TMDS_Data_n[0]),
         .TMDS_Data_p(TMDS_Data_p[0]),
-        .pAligned_reg(\DataDecoders[1].DecoderX_n_0 ),
+        .pAligned_reg(\DataDecoders[1].DecoderX_n_5 ),
         .pAllVld(pAllVld),
         .pAllVldBgnFlag(\ChannelBondX/pAllVldBgnFlag ),
         .pC0(pC0),
         .pC1(pC1),
-        .\pDataIn_reg[7]_0 (\DataDecoders[0].DecoderX_n_6 ),
+        .\pDataIn_reg[7]_0 (\DataDecoders[0].DecoderX_n_11 ),
+        .\pEyeSize[0] (\pEyeSize[0] ),
         .pRdy_0(pRdy_0),
         .pRdy_1(pRdy_1),
         .pRdy_2(pRdy_2),
@@ -10974,13 +11032,13 @@ module Arty_Z7_20_dvi2rgb_0_0_dvi2rgb
         .PixelClk_int(PixelClk_int),
         .Q(piData[7:0]),
         .RefClk(RefClk),
-        .SR(\DataDecoders[1].DecoderX_n_3 ),
+        .SR(\DataDecoders[1].DecoderX_n_8 ),
         .TMDS_Data_n(TMDS_Data_n[1]),
         .TMDS_Data_p(TMDS_Data_p[1]),
         .pAllVld(pAllVld),
         .pAllVldBgnFlag(\ChannelBondX/pAllVldBgnFlag ),
-        .pMeRdy_int_reg(\DataDecoders[1].DecoderX_n_0 ),
-        .pMeRdy_int_reg_0(\DataDecoders[0].DecoderX_n_6 ),
+        .pMeRdy_int_reg(\DataDecoders[1].DecoderX_n_5 ),
+        .pMeRdy_int_reg_0(\DataDecoders[0].DecoderX_n_11 ),
         .pRdy_0(pRdy_0),
         .pRdy_1(pRdy_1),
         .pRdy_2(pRdy_2),
@@ -10988,20 +11046,21 @@ module Arty_Z7_20_dvi2rgb_0_0_dvi2rgb
         .pVld_0(pVld_0),
         .pVld_1(pVld_1),
         .pVld_2(pVld_2),
+        .p_5_out(\pEyeSize[1] ),
         .\rMMCM_Reset_q_reg[0] (SerialClk));
   Arty_Z7_20_dvi2rgb_0_0_TMDS_Decoder_1 \DataDecoders[2].DecoderX 
        (.CLKB(SerialClk),
         .PixelClk_int(PixelClk_int),
         .Q(pDataIn),
         .RefClk(RefClk),
-        .SR(\DataDecoders[2].DecoderX_n_3 ),
+        .SR(\DataDecoders[2].DecoderX_n_8 ),
         .TMDS_Data_n(TMDS_Data_n[2]),
         .TMDS_Data_p(TMDS_Data_p[2]),
         .out(pLockLostRst),
-        .pAligned_reg(\DataDecoders[1].DecoderX_n_0 ),
+        .pAligned_reg(\DataDecoders[1].DecoderX_n_5 ),
         .pAllVld(pAllVld),
         .pAllVldBgnFlag(\ChannelBondX/pAllVldBgnFlag ),
-        .pMeRdy_int_reg(\DataDecoders[1].DecoderX_n_3 ),
+        .pMeRdy_int_reg(\DataDecoders[1].DecoderX_n_8 ),
         .pRdy_0(pRdy_0),
         .pRdy_1(pRdy_1),
         .pRdy_2(pRdy_2),
@@ -11009,6 +11068,7 @@ module Arty_Z7_20_dvi2rgb_0_0_dvi2rgb
         .pVld_0(pVld_0),
         .pVld_1(pVld_1),
         .pVld_2(pVld_2),
+        .p_10_out(\pEyeSize[2] ),
         .\rMMCM_Reset_q_reg[0] (SerialClk));
   GND GND
        (.G(\<const0> ));

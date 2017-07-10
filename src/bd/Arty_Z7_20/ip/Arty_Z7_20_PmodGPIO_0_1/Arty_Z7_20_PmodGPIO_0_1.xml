@@ -656,11 +656,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jun 28 19:08:37 UTC 2017</spirit:value>
+            <spirit:value>Mon Jul 10 16:12:08 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:24a53f85</spirit:value>
+            <spirit:value>7:3a5d4019</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -675,11 +675,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jun 28 19:08:37 UTC 2017</spirit:value>
+            <spirit:value>Mon Jul 10 18:54:25 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:24a53f85</spirit:value>
+            <spirit:value>7:3a5d4019</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -693,11 +693,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jun 28 19:08:37 UTC 2017</spirit:value>
+            <spirit:value>Mon Jul 10 16:12:08 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:7c5bf3b5</spirit:value>
+            <spirit:value>7:38237fef</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -712,11 +712,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jun 28 19:08:37 UTC 2017</spirit:value>
+            <spirit:value>Mon Jul 10 18:54:25 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:7c5bf3b5</spirit:value>
+            <spirit:value>7:38237fef</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -730,11 +730,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jun 28 19:08:37 UTC 2017</spirit:value>
+            <spirit:value>Mon Jul 10 18:54:25 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:24a53f85</spirit:value>
+            <spirit:value>7:3a5d4019</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -748,11 +748,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Jun 28 19:09:15 UTC 2017</spirit:value>
+            <spirit:value>Mon Jul 10 18:55:40 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:24a53f85</spirit:value>
+            <spirit:value>7:3a5d4019</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1507,7 +1507,7 @@
     <spirit:parameter>
       <spirit:name>PMOD</spirit:name>
       <spirit:displayName>Pmod</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PMOD" spirit:choiceRef="choice_list_59c0601b">ja</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PMOD" spirit:choiceRef="choice_list_59c0601b">jb</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>AXI_LITE_GPIO_BASEADDR</spirit:name>

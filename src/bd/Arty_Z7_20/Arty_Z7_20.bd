@@ -291,13 +291,13 @@
         <spirit:abstractionType spirit:library="interface" spirit:name="gpio_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>ja</spirit:name>
+        <spirit:name>jb</spirit:name>
         <spirit:master/>
         <spirit:busType spirit:library="interface" spirit:name="pmod" spirit:vendor="digilentinc.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="pmod_rtl" spirit:vendor="digilentinc.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>jb</spirit:name>
+        <spirit:name>ja</spirit:name>
         <spirit:master/>
         <spirit:busType spirit:library="interface" spirit:name="pmod" spirit:vendor="digilentinc.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="pmod_rtl" spirit:vendor="digilentinc.com" spirit:version="1.0"/>
@@ -396,16 +396,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>rgb2dvi_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="rgb2dvi" spirit:vendor="digilentinc.com" spirit:version="1.3"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_rgb2dvi_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="kRstActiveHigh">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="kGenerateSerialClk">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="kClkRange">2</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>rst_processing_system7_0_100M</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="proc_sys_reset" spirit:vendor="xilinx.com" spirit:version="5.0"/>
         <spirit:configurableElementValues>
@@ -446,15 +436,6 @@
         <spirit:componentRef spirit:library="ip" spirit:name="proc_sys_reset" spirit:vendor="xilinx.com" spirit:version="5.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_proc_sys_reset_0_2</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>dvi2rgb_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="dvi2rgb" spirit:vendor="digilentinc.com" spirit:version="1.7"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_dvi2rgb_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="kRstActiveHigh">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="kAddBUFG">true</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -1282,8 +1263,8 @@
         <spirit:componentRef spirit:library="ip" spirit:name="xlconcat" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_xlconcat_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="NUM_PORTS">8</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="dout_width">8</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="NUM_PORTS">9</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="dout_width">9</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -1305,17 +1286,36 @@
         <spirit:componentRef spirit:library="IP" spirit:name="PmodGPIO" spirit:vendor="digilentinc.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_PmodGPIO_0_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PMOD">ja</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PMOD">jb</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="USE_BOARD_FLOW">true</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>PmodGYRO_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="IP" spirit:name="PmodGYRO" spirit:vendor="digilentinc.com" spirit:version="1.0"/>
+        <spirit:instanceName>dvi2rgb_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="dvi2rgb" spirit:vendor="digilentinc.com" spirit:version="1.7"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_PmodGYRO_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PMOD">jb</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_dvi2rgb_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="kRstActiveHigh">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="kAddBUFG">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="kEdidFileName">720p_edid.data</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>rgb2dvi_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="rgb2dvi" spirit:vendor="digilentinc.com" spirit:version="1.4"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_rgb2dvi_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="kRstActiveHigh">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="kGenerateSerialClk">false</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>PmodHYGRO_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="IP" spirit:name="PmodHYGRO" spirit:vendor="digilentinc.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Arty_Z7_20_PmodHYGRO_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="USE_BOARD_FLOW">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PMOD">ja</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -1448,12 +1448,12 @@
       <spirit:interconnection>
         <spirit:name>processing_system7_0_axi_periph_M12_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M12_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
-        <spirit:activeInterface spirit:busRef="AXI_LITE_SPI" spirit:componentRef="PmodGYRO_0"/>
+        <spirit:activeInterface spirit:busRef="AXI_LITE_TMR" spirit:componentRef="PmodHYGRO_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>processing_system7_0_axi_periph_M13_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M13_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
-        <spirit:activeInterface spirit:busRef="AXI_LITE_GPIO" spirit:componentRef="PmodGYRO_0"/>
+        <spirit:activeInterface spirit:busRef="AXI_LITE_IIC" spirit:componentRef="PmodHYGRO_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -1470,9 +1470,9 @@
       <spirit:adHocConnection>
         <spirit:name>axi_dynclk_0_PXL_CLK_O</spirit:name>
         <spirit:internalPortReference spirit:componentRef="axi_dynclk_0" spirit:portRef="PXL_CLK_O"/>
-        <spirit:internalPortReference spirit:componentRef="rgb2dvi_0" spirit:portRef="PixelClk"/>
         <spirit:internalPortReference spirit:componentRef="v_tc_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="v_axi4s_vid_out_0" spirit:portRef="vid_io_out_clk"/>
+        <spirit:internalPortReference spirit:componentRef="rgb2dvi_0" spirit:portRef="PixelClk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>axi_gpio_0_ip2intc_irpt</spirit:name>
@@ -1521,10 +1521,9 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M09_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M10_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M11_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="PmodGYRO_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M12_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M13_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="PmodGYRO_0" spirit:portRef="ext_spi_clk"/>
+        <spirit:internalPortReference spirit:componentRef="PmodHYGRO_0" spirit:portRef="s_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_CLK1</spirit:name>
@@ -1576,7 +1575,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_dynclk_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="v_tc_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="v_tc_1" spirit:portRef="s_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="dvi2rgb_0" spirit:portRef="aRst_n"/>
         <spirit:internalPortReference spirit:componentRef="axi_gpio_video" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_gpio_hdmi" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_gpio_led" spirit:portRef="s_axi_aresetn"/>
@@ -1599,9 +1597,10 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M09_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M10_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M11_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="PmodGYRO_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M12_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M13_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="dvi2rgb_0" spirit:portRef="aRst_n"/>
+        <spirit:internalPortReference spirit:componentRef="PmodHYGRO_0" spirit:portRef="s_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>rst_processing_system7_0_142M_interconnect_aresetn</spirit:name>
@@ -1709,6 +1708,11 @@
         <spirit:internalPortReference spirit:componentRef="axi_gpio_video" spirit:portRef="ip2intc_irpt"/>
         <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In6"/>
       </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>PmodHYGRO_0_I2C_Interrupt</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="PmodHYGRO_0" spirit:portRef="I2C_Interrupt"/>
+        <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In8"/>
+      </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
       <spirit:hierConnection spirit:interfaceRef="DDR/processing_system7_0_DDR">
@@ -1789,11 +1793,11 @@
       <spirit:hierConnection spirit:interfaceRef="hdmi_in_hpd/axi_gpio_video_GPIO">
         <spirit:activeInterface spirit:busRef="GPIO" spirit:componentRef="axi_gpio_video"/>
       </spirit:hierConnection>
-      <spirit:hierConnection spirit:interfaceRef="ja/PmodGPIO_0_Pmod_out">
+      <spirit:hierConnection spirit:interfaceRef="jb/PmodGPIO_0_Pmod_out">
         <spirit:activeInterface spirit:busRef="Pmod_out" spirit:componentRef="PmodGPIO_0"/>
       </spirit:hierConnection>
-      <spirit:hierConnection spirit:interfaceRef="jb/PmodGYRO_0_Pmod_out">
-        <spirit:activeInterface spirit:busRef="Pmod_out" spirit:componentRef="PmodGYRO_0"/>
+      <spirit:hierConnection spirit:interfaceRef="ja/PmodHYGRO_0_Pmod_out">
+        <spirit:activeInterface spirit:busRef="Pmod_out" spirit:componentRef="PmodHYGRO_0"/>
       </spirit:hierConnection>
     </spirit:hierConnections>
   </spirit:design>
@@ -7215,16 +7219,16 @@
             <spirit:range>4K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_PmodGYRO_0_Reg0</spirit:name>
-            <spirit:displayName>/PmodGYRO_0/AXI_LITE_SPI/Reg0</spirit:displayName>
-            <spirit:addressOffset>0x40010000</spirit:addressOffset>
+            <spirit:name>SEG_PmodHYGRO_0_Reg0</spirit:name>
+            <spirit:displayName>/PmodHYGRO_0/AXI_LITE_TMR/Reg0</spirit:displayName>
+            <spirit:addressOffset>0x43C40000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_PmodGYRO_0_Reg01</spirit:name>
-            <spirit:displayName>/PmodGYRO_0/AXI_LITE_GPIO/Reg0</spirit:displayName>
-            <spirit:addressOffset>0x40001000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
+            <spirit:name>SEG_PmodHYGRO_0_Reg01</spirit:name>
+            <spirit:displayName>/PmodHYGRO_0/AXI_LITE_IIC/Reg0</spirit:displayName>
+            <spirit:addressOffset>0x43C50000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
             <spirit:name>SEG_axi_dynclk_0_reg0</spirit:name>

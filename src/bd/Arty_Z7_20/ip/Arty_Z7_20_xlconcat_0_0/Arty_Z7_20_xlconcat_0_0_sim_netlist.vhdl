@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.1_sdx (lin64) Build 1881615 Tue May 16 18:38:00 MDT 2017
--- Date        : Tue Jun 20 16:32:26 2017
+-- Date        : Mon Jul 10 11:55:01 2017
 -- Host        : localhost.localdomain running 64-bit unknown
 -- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/sam_work/git/digilent/Arty-Z7-20-base/src/bd/Arty_Z7_20/ip/Arty_Z7_20_xlconcat_0_0/Arty_Z7_20_xlconcat_0_0_sim_netlist.vhdl
+--               /home/digilent/sam_work/git/sbobrowicz/Arty-Z7-20-base-I2C/src/bd/Arty_Z7_20/ip/Arty_Z7_20_xlconcat_0_0/Arty_Z7_20_xlconcat_0_0_sim_netlist.vhdl
 -- Design      : Arty_Z7_20_xlconcat_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -24,7 +24,8 @@ entity Arty_Z7_20_xlconcat_0_0 is
     In5 : in STD_LOGIC_VECTOR ( 0 to 0 );
     In6 : in STD_LOGIC_VECTOR ( 0 to 0 );
     In7 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    In8 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 8 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of Arty_Z7_20_xlconcat_0_0 : entity is true;
@@ -45,6 +46,7 @@ architecture STRUCTURE of Arty_Z7_20_xlconcat_0_0 is
   signal \^in5\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^in6\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^in7\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^in8\ : STD_LOGIC_VECTOR ( 0 to 0 );
 begin
   \^in0\(0) <= In0(0);
   \^in1\(0) <= In1(0);
@@ -54,6 +56,8 @@ begin
   \^in5\(0) <= In5(0);
   \^in6\(0) <= In6(0);
   \^in7\(0) <= In7(0);
+  \^in8\(0) <= In8(0);
+  dout(8) <= \^in8\(0);
   dout(7) <= \^in7\(0);
   dout(6) <= \^in6\(0);
   dout(5) <= \^in5\(0);

@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.1_sdx (lin64) Build 1881615 Tue May 16 18:38:00 MDT 2017
---Date        : Fri Jul  7 16:05:59 2017
+--Date        : Mon Jul 10 11:54:08 2017
 --Host        : localhost.localdomain running 64-bit unknown
 --Command     : generate_target Arty_Z7_20_wrapper.bd
 --Design      : Arty_Z7_20_wrapper
@@ -198,30 +198,6 @@ architecture STRUCTURE of Arty_Z7_20_wrapper is
     DDC_In_sda_o : out STD_LOGIC;
     DDC_In_sda_t : out STD_LOGIC;
     hdmi_in_hpd_tri_o : out STD_LOGIC_VECTOR ( 0 to 0 );
-    ja_pin1_o : out STD_LOGIC;
-    ja_pin7_i : in STD_LOGIC;
-    ja_pin2_o : out STD_LOGIC;
-    ja_pin8_i : in STD_LOGIC;
-    ja_pin3_o : out STD_LOGIC;
-    ja_pin9_i : in STD_LOGIC;
-    ja_pin10_o : out STD_LOGIC;
-    ja_pin4_o : out STD_LOGIC;
-    ja_pin3_i : in STD_LOGIC;
-    ja_pin4_i : in STD_LOGIC;
-    ja_pin1_i : in STD_LOGIC;
-    ja_pin2_i : in STD_LOGIC;
-    ja_pin10_t : out STD_LOGIC;
-    ja_pin8_t : out STD_LOGIC;
-    ja_pin9_t : out STD_LOGIC;
-    ja_pin4_t : out STD_LOGIC;
-    ja_pin9_o : out STD_LOGIC;
-    ja_pin10_i : in STD_LOGIC;
-    ja_pin7_t : out STD_LOGIC;
-    ja_pin1_t : out STD_LOGIC;
-    ja_pin2_t : out STD_LOGIC;
-    ja_pin7_o : out STD_LOGIC;
-    ja_pin3_t : out STD_LOGIC;
-    ja_pin8_o : out STD_LOGIC;
     sys_clock : in STD_LOGIC;
     jb_pin1_o : out STD_LOGIC;
     jb_pin7_i : in STD_LOGIC;
@@ -246,7 +222,31 @@ architecture STRUCTURE of Arty_Z7_20_wrapper is
     jb_pin2_t : out STD_LOGIC;
     jb_pin7_o : out STD_LOGIC;
     jb_pin3_t : out STD_LOGIC;
-    jb_pin8_o : out STD_LOGIC
+    jb_pin8_o : out STD_LOGIC;
+    ja_pin1_o : out STD_LOGIC;
+    ja_pin7_i : in STD_LOGIC;
+    ja_pin2_o : out STD_LOGIC;
+    ja_pin8_i : in STD_LOGIC;
+    ja_pin3_o : out STD_LOGIC;
+    ja_pin9_i : in STD_LOGIC;
+    ja_pin10_o : out STD_LOGIC;
+    ja_pin4_o : out STD_LOGIC;
+    ja_pin3_i : in STD_LOGIC;
+    ja_pin4_i : in STD_LOGIC;
+    ja_pin1_i : in STD_LOGIC;
+    ja_pin2_i : in STD_LOGIC;
+    ja_pin10_t : out STD_LOGIC;
+    ja_pin8_t : out STD_LOGIC;
+    ja_pin9_t : out STD_LOGIC;
+    ja_pin4_t : out STD_LOGIC;
+    ja_pin9_o : out STD_LOGIC;
+    ja_pin10_i : in STD_LOGIC;
+    ja_pin7_t : out STD_LOGIC;
+    ja_pin1_t : out STD_LOGIC;
+    ja_pin2_t : out STD_LOGIC;
+    ja_pin7_o : out STD_LOGIC;
+    ja_pin3_t : out STD_LOGIC;
+    ja_pin8_o : out STD_LOGIC
   );
   end component Arty_Z7_20;
   component IOBUF is
